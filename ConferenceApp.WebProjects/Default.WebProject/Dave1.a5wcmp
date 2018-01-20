@@ -35,8 +35,14 @@
         "clientSideEvents": {
             "_canAjaxCallback": "",
             "__afterAjaxCallbackComplete": "",
+            "beforeUXSectionPrepare": "",
+            "afterUXSectionPrepare": "",
+            "beforeUXSectionDestroy": "",
+            "afterUXSectionDestroy": "",
             "onAjaxCallbackFailed": "",
             "onAjaxCallbackNotAvailable": "",
+            "onAjaxCallbackNotAllowed": "",
+            "onServerSideEventHandlerError": "",
             "onFieldValidationError": "",
             "beforePrepare": "",
             "afterPrepare": "",
@@ -60,10 +66,7 @@
             "onSynchronizeDialog": "",
             "afterPopulateFromTable": "",
             "onRenderComplete": "",
-            "beforeUXSectionPrepare": "",
-            "afterUXSectionPrepare": "",
-            "beforeUXSectionDestroy": "",
-            "afterUXSectionDestroy": "",
+            "onAndroidBackButton": "",
             "onPanelActivate": "",
             "afterSaveToRepository": "",
             "afterLoadFromRepository": "",
@@ -108,7 +111,10 @@
             "securityPermissionDenied": "",
             "webSocketOnMessage": "",
             "webSocketServerClose": "",
-            "webSocketSendMessageFail": ""
+            "webSocketSendMessageFail": "",
+            "afterGoogleAddressSelect": "",
+            "onBeforeClientSideDataCacheRead": "",
+            "afterClientSideDataCacheAjaxCallback": ""
         },
         "onlyValidateChangedFields": true,
         "edit": {
@@ -156,7 +162,7 @@
         "info": {
             "createdBy": "Dan",
             "dateCreated": "2016-6-20",
-            "dateLastEdited": "2016-6-23"
+            "dateLastEdited": "2018-1-20"
         },
         "flagShowCommentsInTree": true,
         "treeCommentOffset": "6",
@@ -199,14 +205,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{Data=0e40589e-65bc-44ae-8e0e-b6b3c665cbbc}{I:'$$control.browse'} [list1]",
                 "crc": "4294904636",
-                "indentTree": 0,
-                "precalc": {
-                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 4in\" >\n\t<!--FldS--><!--JSControlStart--><input type=\"hidden\" id=\"{grid.componentname}.V.R{grid.rownumber}.LIST1\" name=\"V.R{grid.rownumber}.LIST1\" /><!--JSControlEnd-->\n<div  class=\"{dialog.style}List\"   style=\"padding:0px; \"  >\n\t<div id=\"{grid.componentname}.V.R{grid.rownumber}.LIST1.CONTROL\"  class=\"{grid.componentName}_LIST1\" style=\"overflow: auto; width: 100%; height: 3in; \"></div>\n</div>\n<!--FldE-->\n</div>",
-                    "DesignViewHTML": "",
-                    "columnInfo": "'LIST1': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
-                },
-                "inPanelCard": false,
-                "inTreeControl": false,
                 "v": {
                     "controlType": "List",
                     "variableName": "list1",
@@ -215,7 +213,13 @@
                     "watermark": {
                         "text": "<FieldLabel>"
                     },
-                    "textboxSubTheme": "",
+                    "precalc": {
+                        "javascriptAbstractSetupCode": "",
+                        "controlHTMLInPanelCard": "in panel card",
+                        "javascript_listViewData": "{dialog.object}._listViewData['LIST1'] = [[dialog.listViewData.list1]]; ",
+                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST1'] = [[dialog.listViewSettings.list1]]; ",
+                        "javascript_listview": "{dialog.object}._controls['LIST1'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST1'],  settings: {dialog.object}._listViewSettings['LIST1'] }"
+                    },
                     "textboxAutocorrect": true,
                     "textboxAutoCapitalize": true,
                     "label": "List1",
@@ -243,6 +247,30 @@
                             "noImageFoundImage": "<None>",
                             "newRecordImage": "<None>"
                         }
+                    },
+                    "textboxSubTheme": "",
+                    "datePicker": {
+                        "displayTimePicker": false,
+                        "openMethod": "ClickIcon",
+                        "dateFormat": "<Default>",
+                        "iconNumber": 2,
+                        "OKButtonLabel": "OK",
+                        "CancelButtonLabel": "Cancel",
+                        "userMustSelectFromDatePicker": false,
+                        "multiple": {
+                            "allow": false,
+                            "separators": ".."
+                        },
+                        "hasMask": false,
+                        "format": {
+                            "mask": ""
+                        },
+                        "timePickerOptionsDefined": false,
+                        "display": false
+                    },
+                    "displayAsSlider": false,
+                    "flags": {
+                        "clientSideDefinition": false
                     },
                     "listView": {
                         "class": "<Default>",
@@ -1156,6 +1184,7 @@
                                     "dragScrollMomentum": true,
                                     "columns": [
                                         {
+                                            "display": "{I:'$$control.smartField'} location",
                                             "heading": "Location",
                                             "headingInlineStyle": "",
                                             "headingClassName": "",
@@ -1174,8 +1203,7 @@
                                             "hideColumnIfFieldHidden": true,
                                             "hideColumnReferenceField": "location",
                                             "columnIsResizeable": false,
-                                            "name": "location",
-                                            "display": "{I:'$$control.smartField'} location"
+                                            "name": "location"
                                         }
                                     ]
                                 }
@@ -1301,38 +1329,16 @@
                         "precalc": {
                             "javascriptOnOrientationChange": ""
                         }
-                    },
-                    "datePicker": {
-                        "displayTimePicker": false,
-                        "openMethod": "ClickIcon",
-                        "dateFormat": "<Default>",
-                        "iconNumber": 2,
-                        "OKButtonLabel": "OK",
-                        "CancelButtonLabel": "Cancel",
-                        "userMustSelectFromDatePicker": false,
-                        "multiple": {
-                            "allow": false,
-                            "separators": ".."
-                        },
-                        "hasMask": false,
-                        "format": {
-                            "mask": ""
-                        },
-                        "timePickerOptionsDefined": false,
-                        "display": false
-                    },
-                    "precalc": {
-                        "controlHTMLInPanelCard": "in panel card",
-                        "javascript_listViewData": "{dialog.object}._listViewData['LIST1'] = [[dialog.listViewData.list1]]; ",
-                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST1'] = [[dialog.listViewSettings.list1]]; ",
-                        "javascript_listview": "{dialog.object}._controls['LIST1'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST1'],  settings: {dialog.object}._listViewSettings['LIST1'] }",
-                        "javascriptAbstractSetupCode": ""
-                    },
-                    "displayAsSlider": false,
-                    "flags": {
-                        "clientSideDefinition": false
                     }
-                }
+                },
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 4in\" >\n\t<!--FldS--><!--JSControlStart--><input type=\"hidden\" id=\"{grid.componentname}.V.R{grid.rownumber}.LIST1\" name=\"V.R{grid.rownumber}.LIST1\" /><!--JSControlEnd-->\n<div  class=\"{dialog.style}List\"   style=\"padding:0px; \"  >\n\t<div id=\"{grid.componentname}.V.R{grid.rownumber}.LIST1.CONTROL\"  class=\"{grid.componentName}_LIST1\" style=\"overflow: auto; width: 100%; height: 3in; \"></div>\n</div>\n<!--FldE-->\n</div>",
+                    "DesignViewHTML": "",
+                    "columnInfo": "'LIST1': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
+                },
+                "inPanelCard": false,
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_formView",
@@ -1344,13 +1350,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{Data=52f503df-6cd7-422b-aa08-7c09cb9c2c1b}{I:'$$control.form'} [Form View: FORMVIEW_1] ¶",
                 "crc": "4294918060",
-                "indentTree": 0,
-                "precalc": {
-                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \"  id=\"{dialog.componentName}.V.R{dialog.rownumber}.FORMVIEW_1\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\">\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\n",
-                    "DesignViewHTML": ""
-                },
-                "inPanelCard": false,
-                "inTreeControl": false,
                 "v": {
                     "id": "FORMVIEW_1",
                     "formview": {
@@ -1360,7 +1359,14 @@
                     "BreakType": "After",
                     "breakHeight": ".1in",
                     "breakHorizontalSpace": ".1in"
-                }
+                },
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \"  id=\"{dialog.componentName}.V.R{dialog.rownumber}.FORMVIEW_1\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\">\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\n",
+                    "DesignViewHTML": ""
+                },
+                "inPanelCard": false,
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_ContainerBegin",
@@ -1524,13 +1530,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=383a8a82_f22d_4278_9977_3845a9674579}{I:'$$format.text'} [Static Text: Field label goes her] ¶",
                 "crc": "4294936447",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.EDITOR_1_STATICTEXT\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><div id=\"EDITOR_1.FIELDLABEL\" style=\"display:none;\">Field label goes here</div></div>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
-                    "DesignViewHTML": ""
-                },
-                "inPanelCard": false,
-                "inTreeControl": false,
                 "v": {
                     "StaticText": "<div id=\"EDITOR_1.FIELDLABEL\" style=\"display:none;\">Field label goes here</div>",
                     "Class": "<Default>",
@@ -1546,7 +1545,14 @@
                         "javascriptAbstractSetupCode": ""
                     }
                 },
-                "parentIsCollapsed": true
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.EDITOR_1_STATICTEXT\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><div id=\"EDITOR_1.FIELDLABEL\" style=\"display:none;\">Field label goes here</div></div>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
+                    "DesignViewHTML": ""
+                },
+                "parentIsCollapsed": true,
+                "inPanelCard": false,
+                "inTreeControl": false
             },
             {
                 "controlType": "dialog_formcontrol",
@@ -1631,9 +1637,9 @@
                     "DesignViewHTML": "",
                     "columnInfo": "'EDITOR_1_TXTBOX': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
                 },
+                "parentIsCollapsed": true,
                 "inPanelCard": false,
-                "inTreeControl": false,
-                "parentIsCollapsed": true
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_statictext",
@@ -1645,13 +1651,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=f0310f46_3077_4318_82fe_9d29bb336c13}{I:'$$format.text'} [Static Text: Help text for this f] ¶",
                 "crc": "4294934955",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.EDITOR_1_STATICTEXT2\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><div id=\"EDITOR_1.HELPTEXT\" style=\"display:none;\">Help text for this field goes here.</div></div>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
-                    "DesignViewHTML": ""
-                },
-                "inPanelCard": false,
-                "inTreeControl": false,
                 "v": {
                     "StaticText": "<div id=\"EDITOR_1.HELPTEXT\" style=\"display:none;\">Help text for this field goes here.</div>",
                     "Class": "<Default>",
@@ -1667,7 +1666,14 @@
                         "javascriptAbstractSetupCode": ""
                     }
                 },
-                "parentIsCollapsed": true
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.EDITOR_1_STATICTEXT2\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><div id=\"EDITOR_1.HELPTEXT\" style=\"display:none;\">Help text for this field goes here.</div></div>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
+                    "DesignViewHTML": ""
+                },
+                "parentIsCollapsed": true,
+                "inPanelCard": false,
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_button",
@@ -1739,9 +1745,9 @@
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.EDITOR_1_SAVEBUTTON\"    ></button>\n</div>",
                     "DesignViewHTML": ""
                 },
+                "parentIsCollapsed": true,
                 "inPanelCard": false,
-                "inTreeControl": false,
-                "parentIsCollapsed": true
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_button",
@@ -1813,9 +1819,9 @@
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.EDITOR_1_CANCELBUTTON\"    ></button>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": ""
                 },
+                "parentIsCollapsed": true,
                 "inPanelCard": false,
-                "inTreeControl": false,
-                "parentIsCollapsed": true
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_ContainerEnd",
@@ -1839,8 +1845,8 @@
                     "ControlHTML": "<div style=\"font: 0pt arial;clear:both;\"></div>\n\t</div>\n<!--breakbegin--><br  id=\"{dialog.componentname}.V.R1.EDITOR_1.BREAK\"  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": ""
                 },
-                "containerStartIndex": 4,
-                "parentIsCollapsed": true
+                "parentIsCollapsed": true,
+                "containerStartIndex": 4
             },
             {
                 "controlType": "layout_directive_ContainerEnd",
@@ -1863,20 +1869,19 @@
                     "ControlHTML": "<div style=\"font: 0pt arial;clear:both;\"></div>\n\t</div>\n<!--breakbegin--><br  id=\"{dialog.componentname}.V.R1.EDITORSET_1.BREAK\"  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": ""
                 },
-                "containerStartIndex": 3,
-                "parentIsCollapsed": false
+                "parentIsCollapsed": false,
+                "containerStartIndex": 3
             }
         ],
         "builderType": "Dialog2",
         "guid": "5201a076-cb79-49a6-a905-28d40ab7aadf",
         "componentName": "Dave1",
-        "componentFilename": "Z:\\Documents\\alpha\\Product Management\\Conf App\\ConferenceApp.WebProjects\\Default.WebProject\\Dave1.a5wcmp",
-        "_style_versionNumber": -1,
+        "componentFilename": "C:\\Users\\Administrator\\Documents\\Git\\DevCon2016\\ConferenceApp.WebProjects\\Default.WebProject\\Dave1.a5wcmp",
+        "_style_versionNumber": 4,
         "controlflowdirection": "ltr",
         "SVGLinkedFiles": "",
         "localsvg": "",
         "showLineNumbersInControlsList": false,
-        "customSettingsJSON": "",
         "saveFileType": "Formatted JSON",
         "keyboardShortcutsJSON": "",
         "selected": "52f503df-6cd7-422b-aa08-7c09cb9c2c1b\n",
@@ -1888,8 +1893,19 @@
         "lastControlSelected": "insert_dialog_viewbox",
         "__WPhostName": "Chrome",
         "repeatingSectionsAreDirty": true,
+        "containerSubTypeNew": "",
+        "containerSubTypeOld": "",
+        "flagDropdownCascadingChanged": false,
+        "toolBox_value": "",
+        "addinBuildNumber": "4932",
+        "addinBuildNumberHighestUsed": "4932",
+        "alphaFiveBuildNumber": "12",
         "openedFromTemplate": false,
+        "builtWithVersionNumer": 1,
+        "securityEnabled": false,
+        "showHideIsUsed": false,
         "precalc": {
+            "js_editorSetInitialization": "{dialog.object}._editors['EDITORSET_1'] = {\n\tshow: function(value,settings) { \n},\n\thide: function(settings) { \n},\n\tonCommit: function(value,settings) { \n},\n\tautoCommit: true,\n\teditors: {\"EDITOR_1\":{edit: function(value,settings) { \n{dialog.object}.setValue('EDITOR_1_TXTBOX',value);\n},commit: function(settings) { \nreturn {dialog.object}.getValue('EDITOR_1_TXTBOX');\n},show: function(value,settings) { \n{dialog.object}.__currentEditorSettings = settings;\nvar title = settings['title'];\nif(typeof title == 'undefined' || title == '' ) title = settings.formView.active.name;\nif(typeof title == 'undefined') title = '';\nvar eleTitle = $('EDITOR_1.FIELDLABEL');\nif(title == '') { \n\teleTitle.style.display = 'none';\n} else { \n\teleTitle.style.display = '';\n\teleTitle.innerHTML = title;\n} \nvar helpText = settings['helpText'];\nif(typeof helpText == 'undefined') helpText = '';\nvar hEle = $('EDITOR_1.HELPTEXT');\nif(helpText == '') { \n\thEle.style.display = 'none';\n} else { \n\thEle.innerHTML = helpText\n\thEle.style.display = '';\t\n}\n},hide: function(value,settings) { \n{dialog.object}.__currentEditorSettings = false;\n},validate: function(value,settings) { \n}}}\n}",
             "customControl": {
                 "js_beforePrepare": "",
                 "js_afterRender": "",
@@ -1939,8 +1955,7 @@
                     "javascriptFunctions": "",
                     "css": "#{dialog.componentName}\\.V\\.R1\\.FORMVIEW_1 {\n\n}"
                 }
-            },
-            "js_editorSetInitialization": "{dialog.object}._editors['EDITORSET_1'] = {\n\tshow: function(value,settings) { \n},\n\thide: function(settings) { \n},\n\tonCommit: function(value,settings) { \n},\n\tautoCommit: true,\n\teditors: {\"EDITOR_1\":{edit: function(value,settings) { \n{dialog.object}.setValue('EDITOR_1_TXTBOX',value);\n},commit: function(settings) { \nreturn {dialog.object}.getValue('EDITOR_1_TXTBOX');\n},show: function(value,settings) { \n{dialog.object}.__currentEditorSettings = settings;\nvar title = settings['title'];\nif(typeof title == 'undefined' || title == '' ) title = settings.formView.active.name;\nif(typeof title == 'undefined') title = '';\nvar eleTitle = $('EDITOR_1.FIELDLABEL');\nif(title == '') { \n\teleTitle.style.display = 'none';\n} else { \n\teleTitle.style.display = '';\n\teleTitle.innerHTML = title;\n} \nvar helpText = settings['helpText'];\nif(typeof helpText == 'undefined') helpText = '';\nvar hEle = $('EDITOR_1.HELPTEXT');\nif(helpText == '') { \n\thEle.style.display = 'none';\n} else { \n\thEle.innerHTML = helpText\n\thEle.style.display = '';\t\n}\n},hide: function(value,settings) { \n{dialog.object}.__currentEditorSettings = false;\n},validate: function(value,settings) { \n}}}\n}"
+            }
         },
         "FieldsInRepeatingSectionsDeletedBySecurity": "",
         "repeatingSectionsToRecalc": "",
@@ -1958,19 +1973,37 @@
                 "showSlider": false
             }
         },
-        "flagDropdownCascadingChanged": false,
-        "toolBox_value": "",
-        "addinBuildNumber": "4684",
-        "addinBuildNumberHighestUsed": "4685",
-        "alphaFiveBuildNumber": "12",
-        "builtWithVersionNumer": 1,
-        "securityEnabled": false,
-        "showHideIsUsed": false,
         "Livepreview_permissions": "",
         "showJavascriptActions": false,
         "showResponsiveLayoutHelp": false,
         "__allowCascadingRecalc": true,
-        "containerSubTypeNew": "",
-        "containerSubTypeOld": ""
+        "minimumBuildNumber": "",
+        "_style_hasSassOverrides": false,
+        "_style_hasCSSTweaks": false,
+        "_style_hasCSS_or_subtheme_tweaks": false,
+        "useCompactTheme": false,
+        "styleTweaksCSS": "",
+        "styleTweaksSubthemes": "",
+        "createAppCacheVersion": false,
+        "createAppCacheVersionC": "No",
+        "appcache": {
+            "pageName": "<Default>",
+            "pageTitle": "",
+            "hasHomeScreenIcons": false,
+            "homeScreenIconName": "",
+            "icons": {
+                "precomposed": false
+            },
+            "pageHeadSection": ""
+        },
+        "clientsideNumberFormatDecimal": "period",
+        "clientsideNumberFormatThousands": "comma",
+        "dataSeriesPublishToClientSide": false,
+        "preRenderWarningMessageShow": true,
+        "autoSetPreRenderOnForAllUX": false,
+        "embeddedMode": false,
+        "_style_hassubthemeTweaks": false,
+        "_buildCount": "1",
+        "A5SaveTimeStamp": "20180120145420183"
     }
 }

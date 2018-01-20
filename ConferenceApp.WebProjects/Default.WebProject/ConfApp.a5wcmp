@@ -35,8 +35,13 @@
         "clientSideEvents": {
             "_canAjaxCallback": "",
             "__afterAjaxCallbackComplete": "",
+            "beforeUXSectionPrepare": "",
+            "afterUXSectionPrepare": "",
+            "beforeUXSectionDestroy": "",
+            "afterUXSectionDestroy": "",
             "onAjaxCallbackFailed": "",
             "onAjaxCallbackNotAvailable": "",
+            "onAjaxCallbackNotAllowed": "",
             "onServerSideEventHandlerError": "",
             "onFieldValidationError": "",
             "beforePrepare": "",
@@ -61,10 +66,7 @@
             "onSynchronizeDialog": "",
             "afterPopulateFromTable": "",
             "onRenderComplete": "",
-            "beforeUXSectionPrepare": "",
-            "afterUXSectionPrepare": "",
-            "beforeUXSectionDestroy": "",
-            "afterUXSectionDestroy": "",
+            "onAndroidBackButton": "",
             "onPanelActivate": "",
             "afterSaveToRepository": "",
             "afterLoadFromRepository": "",
@@ -109,7 +111,10 @@
             "securityPermissionDenied": "",
             "webSocketOnMessage": "",
             "webSocketServerClose": "",
-            "webSocketSendMessageFail": ""
+            "webSocketSendMessageFail": "",
+            "afterGoogleAddressSelect": "",
+            "onBeforeClientSideDataCacheRead": "",
+            "afterClientSideDataCacheAjaxCallback": ""
         },
         "onlyValidateChangedFields": true,
         "edit": {
@@ -160,7 +165,7 @@
         "info": {
             "createdBy": "davem",
             "dateCreated": "2016-6-6",
-            "dateLastEdited": "2016-7-28"
+            "dateLastEdited": "2018-1-20"
         },
         "flagShowCommentsInTree": true,
         "treeCommentOffset": "6",
@@ -624,7 +629,14 @@
                 "displayOD": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{I:'vertLine'}{Data=0def14f3-d5a3-4103-a17c-ab1e489b0fed}{I:'$$control.button'} [Button]",
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{I:'vertLine'}{Data=0def14f3-d5a3-4103-a17c-ab1e489b0fed}{I:'$$control.button'} [Button: REFRESH]",
-                "crc": "4294938132",
+                "crc": "4294936976",
+                "indentTree": 3,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.REFRESH\"    ></button>\n</div>",
+                    "DesignViewHTML": ""
+                },
+                "inPanelCard": false,
+                "inTreeControl": false,
                 "v": {
                     "buttonText": "REFRESH",
                     "Class": "<Default>",
@@ -667,11 +679,11 @@
                     "EnableExpression": "",
                     "ShowExpression": "",
                     "abstractJavascript": {
-                        "click": "/* actionJavascript:db9070f2-c275-4d54-b796-1535df4f4308                                       */\nfunction tempfunction_2ef41eee_9109_4f9a_ab2e_4bca5cf5d98c() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(true);\n}\n\nfunction tempfunction_95d75e57_834d_4d6a_ac1b_488c3e336e96() {\n{dialog.object}.showContainerWindow(this,'WINDOW_4');\n}\n\nfunction tempfunction_082dd82b_b557_44b3_8623_d08d3b916cf6() {\nvar _refresh = function() {\n\n}\n{dialog.object}.refreshDataCacheItem('sessions',_refresh);\n}\n\nfunction tempfunction_c17615ab_888c_4a70_9021_4e0c84a291c0() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160921\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_22e53017_ee2a_4647_86f8_f513985a9dd5() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160922\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_44781bd4_1199_4e9d_965d_672cc6e8a0d8() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160923\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_08ce7293_9bb2_47b4_b57d_35843d4519d8() {\n{dialog.object}.hideContainerWindow('WINDOW_4');\n}\n\nfunction tempfunction_2f6c6cae_769e_47d9_872d_ff52042e61a4() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(false);\n}\n\n\nA5.executeThisThenThat(tempfunction_2ef41eee_9109_4f9a_ab2e_4bca5cf5d98c,tempfunction_95d75e57_834d_4d6a_ac1b_488c3e336e96,tempfunction_082dd82b_b557_44b3_8623_d08d3b916cf6,tempfunction_c17615ab_888c_4a70_9021_4e0c84a291c0,tempfunction_22e53017_ee2a_4647_86f8_f513985a9dd5,tempfunction_44781bd4_1199_4e9d_965d_672cc6e8a0d8,tempfunction_08ce7293_9bb2_47b4_b57d_35843d4519d8,tempfunction_2f6c6cae_769e_47d9_872d_ff52042e61a4);"
+                        "click": "/* actionJavascript:db9070f2-c275-4d54-b796-1535df4f4308                                        */\nfunction tempfunction_f28b3bcb_2b1d_41c3_9347_ae6b0e4d977e() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(true);\n}\n\nfunction tempfunction_e04be18f_c704_4345_b4ae_c69ad7aafbb5() {\n{dialog.object}.showContainerWindow(this,'WINDOW_4');\n}\n\nfunction tempfunction_855d1345_facd_4d36_8a4d_06f3542d8deb() {\nvar _refresh = function() {\n;\n}\n{dialog.object}.refreshDataCacheItem('sessions',_refresh);\n}\n\nfunction tempfunction_f4ae03f7_3c31_4dac_9cb6_a898cd5e173c() {\nvar _onOffline = function() { \n\n};\nvar _onServerNotAvailable = function() { \n;\n};\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);;\n};\nvar _onFail = function() { \n;\n};\nvar _filter = 'data.sdate == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order,_onOffline,_onServerNotAvailable);\n}\n\nfunction tempfunction_6e1b7178_a9c9_441d_ac46_a97635dd9278() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_375df2e5_3817_4dcb_805f_c471efdfdea2() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_513aaae2_c20b_4585_a1f2_b864deb2fa29() {\n{dialog.object}.hideContainerWindow('WINDOW_4');\n}\n\nfunction tempfunction_5f75c878_50a1_4813_8ae0_46f1d53ae3d0() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(false);\n}\n\n\nA5.executeThisThenThat(tempfunction_f28b3bcb_2b1d_41c3_9347_ae6b0e4d977e,tempfunction_e04be18f_c704_4345_b4ae_c69ad7aafbb5,tempfunction_855d1345_facd_4d36_8a4d_06f3542d8deb,tempfunction_f4ae03f7_3c31_4dac_9cb6_a898cd5e173c,tempfunction_6e1b7178_a9c9_441d_ac46_a97635dd9278,tempfunction_375df2e5_3817_4dcb_805f_c471efdfdea2,tempfunction_513aaae2_c20b_4585_a1f2_b864deb2fa29,tempfunction_5f75c878_50a1_4813_8ae0_46f1d53ae3d0);"
                     },
                     "precalc": {
                         "javascriptClientSideWatches": "",
-                        "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.REFRESH',A5.d.evnts.click,function(e) {\nfunction tempfunction_2ef41eee_9109_4f9a_ab2e_4bca5cf5d98c() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(true);\n}\n\nfunction tempfunction_95d75e57_834d_4d6a_ac1b_488c3e336e96() {\n{dialog.object}.showContainerWindow(this,'WINDOW_4');\n}\n\nfunction tempfunction_082dd82b_b557_44b3_8623_d08d3b916cf6() {\nvar _refresh = function() {\n\n}\n{dialog.object}.refreshDataCacheItem('sessions',_refresh);\n}\n\nfunction tempfunction_c17615ab_888c_4a70_9021_4e0c84a291c0() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160921\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_22e53017_ee2a_4647_86f8_f513985a9dd5() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160922\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_44781bd4_1199_4e9d_965d_672cc6e8a0d8() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160923\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_08ce7293_9bb2_47b4_b57d_35843d4519d8() {\n{dialog.object}.hideContainerWindow('WINDOW_4');\n}\n\nfunction tempfunction_2f6c6cae_769e_47d9_872d_ff52042e61a4() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(false);\n}\n\n\nA5.executeThisThenThat(tempfunction_2ef41eee_9109_4f9a_ab2e_4bca5cf5d98c,tempfunction_95d75e57_834d_4d6a_ac1b_488c3e336e96,tempfunction_082dd82b_b557_44b3_8623_d08d3b916cf6,tempfunction_c17615ab_888c_4a70_9021_4e0c84a291c0,tempfunction_22e53017_ee2a_4647_86f8_f513985a9dd5,tempfunction_44781bd4_1199_4e9d_965d_672cc6e8a0d8,tempfunction_08ce7293_9bb2_47b4_b57d_35843d4519d8,tempfunction_2f6c6cae_769e_47d9_872d_ff52042e61a4);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.REFRESH');\n",
+                        "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.REFRESH',A5.d.evnts.click,function(e) {\nfunction tempfunction_f28b3bcb_2b1d_41c3_9347_ae6b0e4d977e() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(true);\n}\n\nfunction tempfunction_e04be18f_c704_4345_b4ae_c69ad7aafbb5() {\n{dialog.object}.showContainerWindow(this,'WINDOW_4');\n}\n\nfunction tempfunction_855d1345_facd_4d36_8a4d_06f3542d8deb() {\nvar _refresh = function() {\n;\n}\n{dialog.object}.refreshDataCacheItem('sessions',_refresh);\n}\n\nfunction tempfunction_f4ae03f7_3c31_4dac_9cb6_a898cd5e173c() {\nvar _onOffline = function() { \n\n};\nvar _onServerNotAvailable = function() { \n;\n};\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);;\n};\nvar _onFail = function() { \n;\n};\nvar _filter = 'data.sdate == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order,_onOffline,_onServerNotAvailable);\n}\n\nfunction tempfunction_6e1b7178_a9c9_441d_ac46_a97635dd9278() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_375df2e5_3817_4dcb_805f_c471efdfdea2() {\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);\n}\n\nfunction tempfunction_513aaae2_c20b_4585_a1f2_b864deb2fa29() {\n{dialog.object}.hideContainerWindow('WINDOW_4');\n}\n\nfunction tempfunction_5f75c878_50a1_4813_8ae0_46f1d53ae3d0() {\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(false);\n}\n\n\nA5.executeThisThenThat(tempfunction_f28b3bcb_2b1d_41c3_9347_ae6b0e4d977e,tempfunction_e04be18f_c704_4345_b4ae_c69ad7aafbb5,tempfunction_855d1345_facd_4d36_8a4d_06f3542d8deb,tempfunction_f4ae03f7_3c31_4dac_9cb6_a898cd5e173c,tempfunction_6e1b7178_a9c9_441d_ac46_a97635dd9278,tempfunction_375df2e5_3817_4dcb_805f_c471efdfdea2,tempfunction_513aaae2_c20b_4585_a1f2_b864deb2fa29,tempfunction_5f75c878_50a1_4813_8ae0_46f1d53ae3d0);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.REFRESH');\n",
                         "javascriptAdvancedButton": "",
                         "javascriptAdvancedButton_control": "{dialog.object}._buttons['REFRESH'] = new A5.Button({\n\tlayout: 'icon',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'REFRESH',\n\ticon: 'refresh4.png',\n\tdisabledIcon: 'refresh4.png',\n\tonClick: function() { \n\n},\n\ttheme: '{grid.style}'\n});",
                         "javascriptAdvancedButton_bind": "{dialog.object}._buttons['REFRESH'].bind('{DIALOG.COMPONENTNAME}.V.R{DIALOG.ROWNUMBER}.REFRESH');"
@@ -679,14 +691,7 @@
                     "javascript": {
                         "onclick": ""
                     }
-                },
-                "indentTree": 3,
-                "precalc": {
-                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.REFRESH\"    ></button>\n</div>",
-                    "DesignViewHTML": ""
-                },
-                "inPanelCard": false,
-                "inTreeControl": false
+                }
             },
             {
                 "controlType": "layout_directive_ContainerEnd",
@@ -805,7 +810,11 @@
                 "displayOD": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=f6854120-8f31-4d56-b6d0-2067b036fd52}{I:'$$control.browse'} [list1]",
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=f6854120-8f31-4d56-b6d0-2067b036fd52}{I:'$$control.browse'} [list1] ¶",
-                "crc": "4294919219",
+                "crc": "4294948617",
+                "indentTree": 2,
+                "parentIsCollapsed": false,
+                "inPanelCard": true,
+                "inTreeControl": false,
                 "v": {
                     "controlType": "List",
                     "variableName": "list1",
@@ -814,13 +823,7 @@
                     "watermark": {
                         "text": "<FieldLabel>"
                     },
-                    "precalc": {
-                        "controlHTMLInPanelCard": "in panel card",
-                        "javascript_listViewData": "{dialog.object}._listViewData['LIST1'] = [[dialog.listViewData.list1]]; ",
-                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST1'] = [[dialog.listViewSettings.list1]]; ",
-                        "javascript_listview": "{dialog.object}._controls['LIST1'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST1'],  settings: {dialog.object}._listViewSettings['LIST1'] }",
-                        "javascriptAbstractSetupCode": ""
-                    },
+                    "textboxSubTheme": "",
                     "textboxAutocorrect": true,
                     "textboxAutoCapitalize": true,
                     "label": "List1",
@@ -840,6 +843,8 @@
                     "clientSideFormat": {
                         "type": "Mask"
                     },
+                    "getFunction": "",
+                    "setFunction": "",
                     "onChange_ValidationOption": "Client-side only",
                     "dataBinding": {
                         "updateable": true,
@@ -847,15 +852,20 @@
                             "type": "JPG",
                             "noImageFoundImage": "<None>",
                             "newRecordImage": "<None>"
+                        },
+                        "ink": {
+                            "hasbackgroundimage": false,
+                            "backgroundimage": "",
+                            "inkunits": 1
                         }
                     },
-                    "textboxSubTheme": "",
                     "listView": {
                         "class": "none",
                         "style": "",
                         "dataSourceType": "Static",
+                        "overrides": "",
                         "flagIsDefined": true,
-                        "staticData": "[\n{\"sessionid\" : \"1\", \"name\" : \"Click the Refresh button at the top right to load latest information.\", \"description\" : \"\", \"starttime\" : \"9:00am\", \"endtime\" : \"9:15 am\", \"track\" : \"0\", \"show\" : \"T\", \"sdate\" : \"20160921\", \"sorder\" : \"1\", \"icon\" : \"\"}\n]",
+                        "staticData": "[\n{\"sessionid\" : \"1\", \"name\" : \"Click the Refresh button at the top right to load latest information.\", \"description\" : \"\", \"starttime\" : \"9:00am\", \"endtime\" : \"9:15 am\", \"track\" : \"0\", \"show\" : \"T\", \"sdate\" : \"20180122\", \"sorder\" : \"1\", \"icon\" : \"\"}\n]",
                         "staticJSONData": "",
                         "height": "3in",
                         "width": "4in",
@@ -939,7 +949,9 @@
                             "first": -1,
                             "primaryKey": "",
                             "serverSideAfterQueryEvent": "",
-                            "serverSideBeforeQueryEvent": ""
+                            "serverSideBeforeQueryEvent": "",
+                            "sqlSecurityJSON": "",
+                            "serversidedatenumberformatjson": ""
                         },
                         "dbf": {
                             "dataReturnType": "Field",
@@ -973,6 +985,7 @@
                             "onNavigate": "",
                             "onSelect": "",
                             "onBeforeSelect": "",
+                            "afterSelect": "",
                             "onDblClick": "",
                             "onClick": "if ({dialog.Object}.getValue('Description') != '' )\n{{dialog.object}.runAction('Open Description Window');}\n",
                             "onRightClick": "",
@@ -990,6 +1003,7 @@
                             "afterPageNavigate": "",
                             "beforeRefreshRow": "",
                             "afterRefreshRow": "",
+                            "afterRefreshData": "",
                             "afterRenderComplete": "",
                             "afterAjaxCallback": "",
                             "beforeClientSideFilter": "",
@@ -1011,7 +1025,8 @@
                             "onSearchResultTooLargeForLocalStorage": "",
                             "onBeforePersistToLocalStorage": "",
                             "onPersistToLocalStorage": "",
-                            "onRestoreFromLocalStorage": ""
+                            "onRestoreFromLocalStorage": "",
+                            "onListReady": ""
                         },
                         "pullpastEnd": {
                             "YSetting": "auto",
@@ -1064,7 +1079,12 @@
                             "maxSearchSizeJSON": ""
                         },
                         "includeCRC": false,
+                        "userDefinedMethodsJSON": "",
+                        "reverseColumnOrder": false,
                         "persistDataToLocalStorage": true,
+                        "persistWhere": "LocalStorage",
+                        "persistMode": "Full",
+                        "incrementalRefreshAfterLoad": false,
                         "versionNumber": 1,
                         "hasDetailView": true,
                         "detailView": {
@@ -1174,6 +1194,7 @@
                                 "afterNewRecord": "",
                                 "modeChanged": "",
                                 "afterDetailViewPopulate": "",
+                                "beforeDetailViewPopulate": "",
                                 "beforeMediaFilesUploaded": "",
                                 "afterMediaFilesUploaded": "",
                                 "onMediaFilesUploadErrors": "",
@@ -1186,7 +1207,9 @@
                             "serverSideEvent": {
                                 "validate": "",
                                 "errorMessageTranslate": "",
-                                "onsynchronize": ""
+                                "onsynchronize": "",
+                                "aftersynchronize": "",
+                                "aftersynchronizeRecord": ""
                             }
                         },
                         "dragScrollMomentum": true,
@@ -1294,7 +1317,8 @@
                                         "style": "",
                                         "bubbleHelp": "",
                                         "onClick": "",
-                                        "stopPropagation": false
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
                                     },
                                     "serverSideSummaryFieldsHas": false,
                                     "serverSideSummaryFields": "",
@@ -1324,7 +1348,8 @@
                                     "baseName": "sessionid",
                                     "display": "{data=1}{I:'$$control.smartField'} sessionid (C)",
                                     "deleteField": false,
-                                    "xbfunction": ""
+                                    "xbfunction": "",
+                                    "hide": false
                                 },
                                 {
                                     "name": "name",
@@ -2312,6 +2337,8 @@
                             "geographyUnits": "Meters|Meters"
                         },
                         "allowNullSelection": true,
+                        "allowAnyValue": false,
+                        "allowTextSelection": false,
                         "allowNullDeselection": false,
                         "loopNavigate": false,
                         "loopNavigateNullSelection": false,
@@ -2414,19 +2441,22 @@
                         "display": false
                     },
                     "displayAsSlider": false,
+                    "precalc": {
+                        "controlHTMLInPanelCard": "in panel card",
+                        "javascript_listViewData": "{dialog.object}._listViewData['LIST1'] = [[dialog.listViewData.list1]]; ",
+                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST1'] = [[dialog.listViewSettings.list1]]; ",
+                        "javascript_listview": "{dialog.object}._controls['LIST1'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST1'],  onInitialize: function() { var that = this; setTimeout(function() {that._onSelect(); delete that; },10);\n},  settings: {dialog.object}._listViewSettings['LIST1'] }",
+                        "javascriptAbstractSetupCode": ""
+                    },
                     "flags": {
                         "clientSideDefinition": false
                     }
                 },
-                "indentTree": 2,
                 "precalc": {
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 4in\" >\n\t<!--FldS--><!--JSControlStart--><input type=\"hidden\" id=\"{grid.componentname}.V.R{grid.rownumber}.LIST1\" name=\"V.R{grid.rownumber}.LIST1\" /><!--JSControlEnd-->\n<div  class=\"none\"   style=\"padding:0px; \"  >\n\t<div id=\"{grid.componentname}.V.R{grid.rownumber}.LIST1.CONTROL\"  class=\"{grid.componentName}_LIST1\" style=\"overflow: auto; width: 100%; height: 3in; \"></div>\n</div>\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": "",
                     "columnInfo": "'LIST1': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
-                },
-                "inPanelCard": true,
-                "inTreeControl": false,
-                "parentIsCollapsed": false
+                }
             },
             {
                 "controlType": "layout_directive_PanelCardEnd",
@@ -2442,8 +2472,8 @@
                     "ControlHTML": "'xbasic\nv._dirty = .f.\n",
                     "DesignViewHTML": ""
                 },
-                "containerStartIndex": 12,
-                "parentIsCollapsed": false
+                "parentIsCollapsed": false,
+                "containerStartIndex": 12
             },
             {
                 "controlType": "layout_directive_PanelCardBegin",
@@ -2513,7 +2543,11 @@
                 "displayOD": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=2bfd9be4_dded_4535_83e2_d853acbe8221}{I:'$$control.browse'} [list2]",
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=2bfd9be4_dded_4535_83e2_d853acbe8221}{I:'$$control.browse'} [list2] ¶",
-                "crc": "4294915006",
+                "crc": "4294903710",
+                "indentTree": 2,
+                "parentIsCollapsed": false,
+                "inPanelCard": true,
+                "inTreeControl": false,
                 "v": {
                     "controlType": "List",
                     "variableName": "list2",
@@ -2522,13 +2556,7 @@
                     "watermark": {
                         "text": "<FieldLabel>"
                     },
-                    "precalc": {
-                        "controlHTMLInPanelCard": "in panel card",
-                        "javascript_listViewData": "{dialog.object}._listViewData['LIST2'] = [[dialog.listViewData.list2]]; ",
-                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST2'] = [[dialog.listViewSettings.list2]]; ",
-                        "javascript_listview": "{dialog.object}._controls['LIST2'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST2'],  settings: {dialog.object}._listViewSettings['LIST2'] }",
-                        "javascriptAbstractSetupCode": ""
-                    },
+                    "textboxSubTheme": "",
                     "textboxAutocorrect": true,
                     "textboxAutoCapitalize": true,
                     "label": "List1",
@@ -2548,6 +2576,8 @@
                     "clientSideFormat": {
                         "type": "Mask"
                     },
+                    "getFunction": "",
+                    "setFunction": "",
                     "onChange_ValidationOption": "Client-side only",
                     "dataBinding": {
                         "updateable": true,
@@ -2555,15 +2585,20 @@
                             "type": "JPG",
                             "noImageFoundImage": "<None>",
                             "newRecordImage": "<None>"
+                        },
+                        "ink": {
+                            "hasbackgroundimage": false,
+                            "backgroundimage": "",
+                            "inkunits": 1
                         }
                     },
-                    "textboxSubTheme": "",
                     "listView": {
                         "class": "none",
                         "style": "",
                         "dataSourceType": "Static",
+                        "overrides": "",
                         "flagIsDefined": true,
-                        "staticData": "[\n{\"sessionid\" : \"1\", \"name\" : \"Click the Refresh button at the top right to load latest information.\", \"description\" : \"\", \"starttime\" : \"9:00am\", \"endtime\" : \"9:15 am\", \"track\" : \"0\", \"show\" : \"T\", \"sdate\" : \"20160921\", \"sorder\" : \"1\", \"icon\" : \"\"}\n]",
+                        "staticData": "[\n{\"sessionid\" : \"1\", \"name\" : \"Click the Refresh button at the top right to load latest information.\", \"description\" : \"\", \"starttime\" : \"9:00am\", \"endtime\" : \"9:15 am\", \"track\" : \"0\", \"show\" : \"T\", \"sdate\" : \"20180122\", \"sorder\" : \"1\", \"icon\" : \"\"}\n]",
                         "staticJSONData": "",
                         "height": "3in",
                         "width": "4in",
@@ -2647,7 +2682,9 @@
                             "first": -1,
                             "primaryKey": "",
                             "serverSideAfterQueryEvent": "",
-                            "serverSideBeforeQueryEvent": ""
+                            "serverSideBeforeQueryEvent": "",
+                            "sqlSecurityJSON": "",
+                            "serversidedatenumberformatjson": ""
                         },
                         "dbf": {
                             "dataReturnType": "Field",
@@ -2681,6 +2718,7 @@
                             "onNavigate": "",
                             "onSelect": "",
                             "onBeforeSelect": "",
+                            "afterSelect": "",
                             "onDblClick": "",
                             "onClick": "if ({dialog.Object}.getValue('Description') != '' )\n{{dialog.object}.runAction('Open Description Window');}\n",
                             "onRightClick": "",
@@ -2698,6 +2736,7 @@
                             "afterPageNavigate": "",
                             "beforeRefreshRow": "",
                             "afterRefreshRow": "",
+                            "afterRefreshData": "",
                             "afterRenderComplete": "",
                             "afterAjaxCallback": "",
                             "beforeClientSideFilter": "",
@@ -2719,7 +2758,8 @@
                             "onSearchResultTooLargeForLocalStorage": "",
                             "onBeforePersistToLocalStorage": "",
                             "onPersistToLocalStorage": "",
-                            "onRestoreFromLocalStorage": ""
+                            "onRestoreFromLocalStorage": "",
+                            "onListReady": ""
                         },
                         "pullpastEnd": {
                             "YSetting": "auto",
@@ -2772,7 +2812,12 @@
                             "maxSearchSizeJSON": ""
                         },
                         "includeCRC": false,
+                        "userDefinedMethodsJSON": "",
+                        "reverseColumnOrder": false,
                         "persistDataToLocalStorage": true,
+                        "persistWhere": "LocalStorage",
+                        "persistMode": "Full",
+                        "incrementalRefreshAfterLoad": false,
                         "versionNumber": 1,
                         "hasDetailView": true,
                         "detailView": {
@@ -2882,6 +2927,7 @@
                                 "afterNewRecord": "",
                                 "modeChanged": "",
                                 "afterDetailViewPopulate": "",
+                                "beforeDetailViewPopulate": "",
                                 "beforeMediaFilesUploaded": "",
                                 "afterMediaFilesUploaded": "",
                                 "onMediaFilesUploadErrors": "",
@@ -2894,7 +2940,9 @@
                             "serverSideEvent": {
                                 "validate": "",
                                 "errorMessageTranslate": "",
-                                "onsynchronize": ""
+                                "onsynchronize": "",
+                                "aftersynchronize": "",
+                                "aftersynchronizeRecord": ""
                             }
                         },
                         "dragScrollMomentum": true,
@@ -3002,7 +3050,8 @@
                                         "style": "",
                                         "bubbleHelp": "",
                                         "onClick": "",
-                                        "stopPropagation": false
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
                                     },
                                     "serverSideSummaryFieldsHas": false,
                                     "serverSideSummaryFields": "",
@@ -3032,7 +3081,8 @@
                                     "baseName": "sessionid",
                                     "display": "{data=1}{I:'$$control.smartField'} sessionid (C)",
                                     "deleteField": false,
-                                    "xbfunction": ""
+                                    "xbfunction": "",
+                                    "hide": false
                                 },
                                 {
                                     "name": "name",
@@ -4020,6 +4070,8 @@
                             "geographyUnits": "Meters|Meters"
                         },
                         "allowNullSelection": true,
+                        "allowAnyValue": false,
+                        "allowTextSelection": false,
                         "allowNullDeselection": false,
                         "loopNavigate": false,
                         "loopNavigateNullSelection": false,
@@ -4122,19 +4174,22 @@
                         "display": false
                     },
                     "displayAsSlider": false,
+                    "precalc": {
+                        "controlHTMLInPanelCard": "in panel card",
+                        "javascript_listViewData": "{dialog.object}._listViewData['LIST2'] = [[dialog.listViewData.list2]]; ",
+                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST2'] = [[dialog.listViewSettings.list2]]; ",
+                        "javascript_listview": "{dialog.object}._controls['LIST2'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST2'],  onInitialize: function() { var that = this; setTimeout(function() {that._onSelect(); delete that; },10);\n},  settings: {dialog.object}._listViewSettings['LIST2'] }",
+                        "javascriptAbstractSetupCode": ""
+                    },
                     "flags": {
                         "clientSideDefinition": false
                     }
                 },
-                "indentTree": 2,
                 "precalc": {
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 4in\" >\n\t<!--FldS--><!--JSControlStart--><input type=\"hidden\" id=\"{grid.componentname}.V.R{grid.rownumber}.LIST2\" name=\"V.R{grid.rownumber}.LIST2\" /><!--JSControlEnd-->\n<div  class=\"none\"   style=\"padding:0px; \"  >\n\t<div id=\"{grid.componentname}.V.R{grid.rownumber}.LIST2.CONTROL\"  class=\"{grid.componentName}_LIST2\" style=\"overflow: auto; width: 100%; height: 3in; \"></div>\n</div>\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": "",
                     "columnInfo": "'LIST2': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
-                },
-                "inPanelCard": true,
-                "inTreeControl": false,
-                "parentIsCollapsed": false
+                }
             },
             {
                 "controlType": "layout_directive_PanelCardEnd",
@@ -4221,7 +4276,11 @@
                 "displayOD": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=688ff111_cbc1_4e5b_9c2f_6b08f34d2672}{I:'$$control.browse'} [list3]",
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{Data=688ff111_cbc1_4e5b_9c2f_6b08f34d2672}{I:'$$control.browse'} [list3] ¶",
-                "crc": "4294902874",
+                "crc": "4294930263",
+                "indentTree": 2,
+                "parentIsCollapsed": false,
+                "inPanelCard": true,
+                "inTreeControl": false,
                 "v": {
                     "controlType": "List",
                     "variableName": "list3",
@@ -4230,13 +4289,7 @@
                     "watermark": {
                         "text": "<FieldLabel>"
                     },
-                    "precalc": {
-                        "controlHTMLInPanelCard": "in panel card",
-                        "javascript_listViewData": "{dialog.object}._listViewData['LIST3'] = [[dialog.listViewData.list3]]; ",
-                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST3'] = [[dialog.listViewSettings.list3]]; ",
-                        "javascript_listview": "{dialog.object}._controls['LIST3'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST3'],  settings: {dialog.object}._listViewSettings['LIST3'] }",
-                        "javascriptAbstractSetupCode": ""
-                    },
+                    "textboxSubTheme": "",
                     "textboxAutocorrect": true,
                     "textboxAutoCapitalize": true,
                     "label": "List1",
@@ -4256,6 +4309,8 @@
                     "clientSideFormat": {
                         "type": "Mask"
                     },
+                    "getFunction": "",
+                    "setFunction": "",
                     "onChange_ValidationOption": "Client-side only",
                     "dataBinding": {
                         "updateable": true,
@@ -4263,15 +4318,20 @@
                             "type": "JPG",
                             "noImageFoundImage": "<None>",
                             "newRecordImage": "<None>"
+                        },
+                        "ink": {
+                            "hasbackgroundimage": false,
+                            "backgroundimage": "",
+                            "inkunits": 1
                         }
                     },
-                    "textboxSubTheme": "",
                     "listView": {
                         "class": "none",
                         "style": "",
                         "dataSourceType": "Static",
+                        "overrides": "",
                         "flagIsDefined": true,
-                        "staticData": "[\n{\"sessionid\" : \"1\", \"name\" : \"Click the Refresh button at the top right to load latest information.\", \"description\" : \"\", \"starttime\" : \"9:00am\", \"endtime\" : \"9:15 am\", \"track\" : \"0\", \"show\" : \"T\", \"sdate\" : \"20160921\", \"sorder\" : \"1\", \"icon\" : \"\"}\n]",
+                        "staticData": "[\n{\"sessionid\" : \"1\", \"name\" : \"Click the Refresh button at the top right to load latest information.\", \"description\" : \"\", \"starttime\" : \"9:00am\", \"endtime\" : \"9:15 am\", \"track\" : \"0\", \"show\" : \"T\", \"sdate\" : \"20180122\", \"sorder\" : \"1\", \"icon\" : \"\"}\n]",
                         "staticJSONData": "",
                         "height": "3in",
                         "width": "4in",
@@ -4355,7 +4415,9 @@
                             "first": -1,
                             "primaryKey": "",
                             "serverSideAfterQueryEvent": "",
-                            "serverSideBeforeQueryEvent": ""
+                            "serverSideBeforeQueryEvent": "",
+                            "sqlSecurityJSON": "",
+                            "serversidedatenumberformatjson": ""
                         },
                         "dbf": {
                             "dataReturnType": "Field",
@@ -4389,6 +4451,7 @@
                             "onNavigate": "",
                             "onSelect": "",
                             "onBeforeSelect": "",
+                            "afterSelect": "",
                             "onDblClick": "",
                             "onClick": "if ({dialog.Object}.getValue('Description') != '' )\n{{dialog.object}.runAction('Open Description Window');}\n",
                             "onRightClick": "",
@@ -4406,6 +4469,7 @@
                             "afterPageNavigate": "",
                             "beforeRefreshRow": "",
                             "afterRefreshRow": "",
+                            "afterRefreshData": "",
                             "afterRenderComplete": "",
                             "afterAjaxCallback": "",
                             "beforeClientSideFilter": "",
@@ -4427,7 +4491,8 @@
                             "onSearchResultTooLargeForLocalStorage": "",
                             "onBeforePersistToLocalStorage": "",
                             "onPersistToLocalStorage": "",
-                            "onRestoreFromLocalStorage": ""
+                            "onRestoreFromLocalStorage": "",
+                            "onListReady": ""
                         },
                         "pullpastEnd": {
                             "YSetting": "auto",
@@ -4480,7 +4545,12 @@
                             "maxSearchSizeJSON": ""
                         },
                         "includeCRC": false,
+                        "userDefinedMethodsJSON": "",
+                        "reverseColumnOrder": false,
                         "persistDataToLocalStorage": true,
+                        "persistWhere": "LocalStorage",
+                        "persistMode": "Full",
+                        "incrementalRefreshAfterLoad": false,
                         "versionNumber": 1,
                         "hasDetailView": true,
                         "detailView": {
@@ -4590,6 +4660,7 @@
                                 "afterNewRecord": "",
                                 "modeChanged": "",
                                 "afterDetailViewPopulate": "",
+                                "beforeDetailViewPopulate": "",
                                 "beforeMediaFilesUploaded": "",
                                 "afterMediaFilesUploaded": "",
                                 "onMediaFilesUploadErrors": "",
@@ -4602,7 +4673,9 @@
                             "serverSideEvent": {
                                 "validate": "",
                                 "errorMessageTranslate": "",
-                                "onsynchronize": ""
+                                "onsynchronize": "",
+                                "aftersynchronize": "",
+                                "aftersynchronizeRecord": ""
                             }
                         },
                         "dragScrollMomentum": true,
@@ -4710,7 +4783,8 @@
                                         "style": "",
                                         "bubbleHelp": "",
                                         "onClick": "",
-                                        "stopPropagation": false
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
                                     },
                                     "serverSideSummaryFieldsHas": false,
                                     "serverSideSummaryFields": "",
@@ -4740,7 +4814,8 @@
                                     "baseName": "sessionid",
                                     "display": "{data=1}{I:'$$control.smartField'} sessionid (C)",
                                     "deleteField": false,
-                                    "xbfunction": ""
+                                    "xbfunction": "",
+                                    "hide": false
                                 },
                                 {
                                     "name": "name",
@@ -5728,6 +5803,8 @@
                             "geographyUnits": "Meters|Meters"
                         },
                         "allowNullSelection": true,
+                        "allowAnyValue": false,
+                        "allowTextSelection": false,
                         "allowNullDeselection": false,
                         "loopNavigate": false,
                         "loopNavigateNullSelection": false,
@@ -5830,19 +5907,22 @@
                         "display": false
                     },
                     "displayAsSlider": false,
+                    "precalc": {
+                        "controlHTMLInPanelCard": "in panel card",
+                        "javascript_listViewData": "{dialog.object}._listViewData['LIST3'] = [[dialog.listViewData.list3]]; ",
+                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['LIST3'] = [[dialog.listViewSettings.list3]]; ",
+                        "javascript_listview": "{dialog.object}._controls['LIST3'] =  { type: 'list',  data: {dialog.object}._listViewData['LIST3'],  onInitialize: function() { var that = this; setTimeout(function() {that._onSelect(); delete that; },10);\n},  settings: {dialog.object}._listViewSettings['LIST3'] }",
+                        "javascriptAbstractSetupCode": ""
+                    },
                     "flags": {
                         "clientSideDefinition": false
                     }
                 },
-                "indentTree": 2,
                 "precalc": {
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 4in\" >\n\t<!--FldS--><!--JSControlStart--><input type=\"hidden\" id=\"{grid.componentname}.V.R{grid.rownumber}.LIST3\" name=\"V.R{grid.rownumber}.LIST3\" /><!--JSControlEnd-->\n<div  class=\"none\"   style=\"padding:0px; \"  >\n\t<div id=\"{grid.componentname}.V.R{grid.rownumber}.LIST3.CONTROL\"  class=\"{grid.componentName}_LIST3\" style=\"overflow: auto; width: 100%; height: 3in; \"></div>\n</div>\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": "",
                     "columnInfo": "'LIST3': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
-                },
-                "inPanelCard": true,
-                "inTreeControl": false,
-                "parentIsCollapsed": false
+                }
             },
             {
                 "controlType": "layout_directive_PanelCardEnd",
@@ -5941,11 +6021,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=d87b2136-82cc-4672-8584-31c2d4a70539}{I:'$$format.border.style.dash'} [Container: CONTAINER_4]",
                 "crc": "4294940704",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.CONTAINER_4\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"width: 15%; height: 40px; \"  ><!--DIV for Container control-->",
-                    "DesignViewHTML": ""
-                },
                 "v": {
                     "container": {
                         "ID": "CONTAINER_4",
@@ -5998,6 +6073,11 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.CONTAINER_4\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"width: 15%; height: 40px; \"  ><!--DIV for Container control-->",
+                    "DesignViewHTML": ""
                 }
             },
             {
@@ -6108,11 +6188,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=75ae970e-4a80-47c6-9d6e-0b7100a17c8e}{I:'$$format.border.style.dash'} [Container: CONTAINER_5]",
                 "crc": "4294962588",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.CONTAINER_5\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"background-color: #666; margin-top: -15px; margin-bottom: 10px; width: 70%; height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
-                    "DesignViewHTML": ""
-                },
                 "v": {
                     "container": {
                         "ID": "CONTAINER_5",
@@ -6170,6 +6245,11 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.CONTAINER_5\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"background-color: #666; margin-top: -15px; margin-bottom: 10px; width: 70%; height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
+                    "DesignViewHTML": ""
                 }
             },
             {
@@ -6182,9 +6262,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{I:'vertLine'}{I:'vertLine'}{Data=173e13f5-baa2-4652-af50-b2dfbf37e4ae}{I:'$$control.text'} [Day]",
                 "crc": "4294938040",
-                "indentTree": 3,
-                "inPanelCard": false,
-                "inTreeControl": false,
                 "v": {
                     "controlType": "Label",
                     "variableName": "Day",
@@ -6193,7 +6270,9 @@
                     "watermark": {
                         "text": "<FieldLabel>"
                     },
-                    "textboxSubTheme": "",
+                    "precalc": {
+                        "javascriptAbstractSetupCode": ""
+                    },
                     "textboxAutocorrect": true,
                     "textboxAutoCapitalize": true,
                     "label": "Day",
@@ -6223,6 +6302,7 @@
                             "newRecordImage": "<None>"
                         }
                     },
+                    "textboxSubTheme": "",
                     "datePicker": {
                         "displayTimePicker": false,
                         "openMethod": "ClickIcon",
@@ -6243,18 +6323,18 @@
                         "display": false
                     },
                     "displayAsSlider": false,
-                    "precalc": {
-                        "javascriptAbstractSetupCode": ""
-                    },
                     "flags": {
                         "clientSideDefinition": false
                     }
                 },
+                "indentTree": 3,
                 "precalc": {
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 2in\" >\n\t<!--FldS--><span\tid=\"{grid.componentname}.V.R{grid.rownumber}.DAY\" class=\"[class.dialogLabel]\" style=\"text-align: center; color: #fff; background-color: #666; width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;; display:inline-block\" title=\"\"    ></span>\n<!--FldE-->\n</div>",
                     "DesignViewHTML": "",
                     "columnInfo": "'DAY': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
-                }
+                },
+                "inPanelCard": false,
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_ContainerEnd",
@@ -6291,11 +6371,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=81319f6e-7680-45ff-8c3c-7d3c9d3d1c78}{I:'$$format.border.style.dash'} [Container: CONTAINER_6]",
                 "crc": "4294903031",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.CONTAINER_6\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"width: 15%; height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"float: right;\">",
-                    "DesignViewHTML": ""
-                },
                 "v": {
                     "container": {
                         "ID": "CONTAINER_6",
@@ -6348,6 +6423,11 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.CONTAINER_6\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"width: 15%; height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"float: right;\">",
+                    "DesignViewHTML": ""
                 }
             },
             {
@@ -7020,9 +7100,9 @@
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.STATICTEXT_1\" title=\"\"  class=\"\" style=\"font: bold arial; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Latest Conference Data Loading...</div>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": ""
                 },
+                "parentIsCollapsed": false,
                 "inPanelCard": false,
-                "inTreeControl": false,
-                "parentIsCollapsed": false
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_ContainerBegin",
@@ -7138,9 +7218,9 @@
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<img id=\"{dialog.componentName}.V.R{dialog.rownumber}.IMAGE_2\"  src=\"data_cloud.png\" class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\" title=\"\"     onerror=\"if(typeof {dialog.object} != 'undefined') {dialog.object}._executeEvent('onImageError',{element: this});\"  />\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
                     "DesignViewHTML": ""
                 },
+                "parentIsCollapsed": false,
                 "inPanelCard": false,
-                "inTreeControl": false,
-                "parentIsCollapsed": false
+                "inTreeControl": false
             },
             {
                 "controlType": "layout_directive_ContainerEnd",
@@ -7187,23 +7267,22 @@
                     "ControlHTML": "<div style=\"font: 0pt arial;clear:both;\"></div>\n\t</div>\n",
                     "DesignViewHTML": ""
                 },
-                "containerStartIndex": 36,
-                "parentIsCollapsed": false
+                "parentIsCollapsed": false,
+                "containerStartIndex": 36
             }
         ],
         "builderType": "Dialog2",
         "guid": "0c1e38c2-6550-4ca9-8ac4-c8c228249b7e",
         "componentName": "ConfApp",
-        "componentFilename": "Z:\\Documents\\alpha\\Product Management\\Conf App\\ConferenceApp.WebProjects\\Default.WebProject\\ConfApp.a5wcmp",
-        "_style_versionNumber": -1,
+        "componentFilename": "C:\\Users\\Administrator\\Documents\\Git\\DevCon2016\\ConferenceApp.WebProjects\\Default.WebProject\\ConfApp.a5wcmp",
+        "_style_versionNumber": 3,
         "controlflowdirection": "ltr",
         "SVGLinkedFiles": "",
         "localsvg": "",
         "showLineNumbersInControlsList": true,
-        "customSettingsJSON": "",
         "saveFileType": "Formatted JSON",
         "keyboardShortcutsJSON": "",
-        "selected": "8791ee55-46c7-43a9-b1e9-d3e0557c6304\n",
+        "selected": "58f8b264-2a35-4dc4-8b56-a6bd432d6d99\n",
         "designPaneIndex": 1,
         "masterPaneC": "controls",
         "serverSideEventIndex": 1,
@@ -7212,7 +7291,17 @@
         "lastControlSelected": "Insert_layout_directive_ContainerBegin",
         "__WPhostName": "Chrome",
         "repeatingSectionsAreDirty": true,
+        "containerSubTypeNew": "",
+        "containerSubTypeOld": "",
+        "flagDropdownCascadingChanged": false,
+        "toolBox_value": "",
+        "addinBuildNumber": "4932",
+        "addinBuildNumberHighestUsed": "4932",
+        "alphaFiveBuildNumber": "12",
         "openedFromTemplate": false,
+        "builtWithVersionNumer": 1,
+        "securityEnabled": false,
+        "showHideIsUsed": false,
         "precalc": {
             "customControl": {
                 "js_beforePrepare": "",
@@ -7253,7 +7342,21 @@
             "otherJS": "",
             "javascript_layoutRules": "",
             "javascript_controlNesting": "{\nPANELHEADER_1: ['container:SPACER','container:CONTAINER_1','container:CONTAINER_2'],\nSPACER: [],\nCONTAINER_1: [],\nCONTAINER_2: [],\nPANELFOOTER_4: ['container:CONTAINER_4','container:CONTAINER_5','container:CONTAINER_6'],\nCONTAINER_4: [],\nCONTAINER_5: ['Day'],\nCONTAINER_6: [],\nWINDOW_3: ['Description'],\nWINDOW_4: ['container:CONTAINER_7'],\nCONTAINER_7: []\n}",
-            "appcacheEvents": ""
+            "appcacheEvents": "",
+            "js_editorSetInitialization": ";\n",
+            "jschart": {
+                "js_beforePrepare": "",
+                "js_afterRender": "",
+                "jschart_xbasicFunctions": ""
+            },
+            "rgraph": {
+                "libraries": ""
+            },
+            "getSetFunctions": {
+                "js_beforePrepare": ""
+            },
+            "flagHasShowTimer": false,
+            "usesSystemSVG": false
         },
         "FieldsInRepeatingSectionsDeletedBySecurity": "",
         "repeatingSectionsToRecalc": "",
@@ -7271,22 +7374,10 @@
                 "showSlider": false
             }
         },
-        "flagDropdownCascadingChanged": false,
-        "toolBox_value": "",
-        "addinBuildNumber": "4697",
-        "addinBuildNumberHighestUsed": "4701",
-        "alphaFiveBuildNumber": "12",
-        "builtWithVersionNumer": 1,
-        "securityEnabled": false,
-        "showHideIsUsed": false,
-        "Livepreview_permissions": "",
-        "showJavascriptActions": false,
-        "showResponsiveLayoutHelp": false,
-        "__allowCascadingRecalc": true,
         "a_actionJavascript": [
             {
-                "actionGuid": "db9070f2-c275-4d54-b796-1535df4f4308                                      ",
-                "scriptMetaData": "<a_ajs<[1]<action=\"Enable or Disable a Button\">\n<icon=\"$$control.button\">\n<isCommentedOut=.F.>\n<comment=\"Disable the refresh button\">\n<builder=\"a5ajs_GenericAction(v,wf,pv,dlg_mode,\\\"disableButton\\\")\">\n<metaData=<<%str%\n<buttonId=\"REFRESH\">\n<buttonMode=\"Disable\">\n%str%>\n<javascriptAttribute=<<%str%\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(true);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$control.button'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Enable or Disable a Button{T=4}{I:'a5_vertical_line'}Disable the refresh button\">\n>\n<[2]<action=\"Show Container Window.\">\n<icon=\"$$window.cascade\">\n<isCommentedOut=.F.>\n<comment=\"Show the data loading window\">\n<builder=\"a5ajs_ShowContainerWindow(v,wf,pv,dlg_mode)\">\n<metaData=<<%str%\n<containerID=\"WINDOW_4\">\n%str%>\n<javascriptAttribute=\"{dialog.object}.showContainerWindow(this,'WINDOW_4');\">\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$window.cascade'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Show Container Window.{T=4}{I:'a5_vertical_line'}Show the data loading window\">\n>\n<[3]<action=\"Client-side Data Cache Actions.\">\n<icon=\"$$database\">\n<isCommentedOut=.F.>\n<comment=\"refresh data from query\">\n<builder=\"a5ajs_Dialog_ListControlActions(v,wf,pv,dlg_mode,\\\"clientsidedatacache\\\")\">\n<metaData=<<%str%\n<cacheItemName=\"\">\n<cacheItemNames=\"sessions\">\n<cacheItemNames2=\"\">\n<listaction=\"Refresh Data Item(s)\">\n<javascript<OnSuccess=\"\">\n<onfail=\"\">\n<onComplete=\"\">\n>\n<filter=\"\">\n<order=\"\">\n%str%>\n<javascriptAttribute=<<%str%\nvar _refresh = function() {\n\n}\n{dialog.object}.refreshDataCacheItem('sessions',_refresh);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$database'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Client-side Data Cache Actions.{T=4}{I:'a5_vertical_line'}refresh data from query\">\n>\n<[4]<display=\"{I:'$$database'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Client-side Data Cache Actions.{T=4}{I:'a5_vertical_line'}UpdateList1\">\n<action=\"Client-side Data Cache Actions.\">\n<icon=\"$$database\">\n<isCommentedOut=.F.>\n<comment=\"UpdateList1\">\n<builder=\"a5ajs_Dialog_ListControlActions(v,wf,pv,dlg_mode,\\\"clientsidedatacache\\\")\">\n<metaData=<<%str1%\n<cacheItemName=\"sessions\">\n<cacheItemNames=\"\">\n<cacheItemNames2=\"\">\n<listaction=\"Read Data\">\n<javascript<OnSuccess=<<%str%\n\n\nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);%str%>\n<onfail=\"\">\n<onComplete=\"\">\n>\n<filter=\"data.sdate == '20160921'\">\n<order=\"sorder | Number\">\n%str1%>\n<javascriptAttribute=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160921\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n>\n<[5]<action=\"Inline-Javascript\">\n<icon=\"a5_new_xbasic_script\">\n<isCommentedOut=.F.>\n<comment=\"UpdateList2\">\n<builder=\"a5ajs_Inline(v,dlg_mode,wf)\">\n<metaData=<<%str1%\n<inlineJavascript=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160922\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n%str1%>\n<javascriptAttribute=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160922\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'a5_new_xbasic_script'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Inline-Javascript{T=4}{I:'a5_vertical_line'}UpdateList2\">\n>\n<[6]<action=\"Inline-Javascript\">\n<icon=\"a5_new_xbasic_script\">\n<isCommentedOut=.F.>\n<comment=\"UpdateList3\">\n<builder=\"a5ajs_Inline(v,dlg_mode,wf)\">\n<metaData=<<%str1%\n<inlineJavascript=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160923\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n%str1%>\n<javascriptAttribute=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.sdate == \\'20160923\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'a5_new_xbasic_script'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Inline-Javascript{T=4}{I:'a5_vertical_line'}UpdateList3\">\n>\n<[7]<action=\"Hide/Close Container Window.\">\n<icon=\"$$window.cascade\">\n<isCommentedOut=.F.>\n<comment=\"Hide the data loading window\">\n<builder=\"a5ajs_ShowContainerWindow(v,wf,pv,dlg_mode,\\\"close\\\")\">\n<metaData=<<%str%\n<containerID=\"WINDOW_4\">\n%str%>\n<javascriptAttribute=\"{dialog.object}.hideContainerWindow('WINDOW_4');\">\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$window.cascade'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Hide/Close Container Window.{T=4}{I:'a5_vertical_line'}Hide the data loading window\">\n>\n<[8]<action=\"Enable or Disable a Button\">\n<icon=\"$$control.button\">\n<isCommentedOut=.F.>\n<comment=\"Re-enable the refresh button\">\n<builder=\"a5ajs_GenericAction(v,wf,pv,dlg_mode,\\\"disableButton\\\")\">\n<metaData=<<%str%\n<buttonId=\"REFRESH\">\n<buttonMode=\"Enable\">\n%str%>\n<javascriptAttribute=<<%str%\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(false);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$control.button'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Enable or Disable a Button{T=4}{I:'a5_vertical_line'}Re-enable the refresh button\">\n>\n>\n<flagRunSynchronously=.T.>\n"
+                "actionGuid": "db9070f2-c275-4d54-b796-1535df4f4308                                       ",
+                "scriptMetaData": "<a_ajs<[1]<action=\"Enable or Disable a Button\">\n<icon=\"$$control.button\">\n<isCommentedOut=.F.>\n<comment=\"Disable the refresh button\">\n<builder=\"a5ajs_GenericAction(v,wf,pv,dlg_mode,\\\"disableButton\\\")\">\n<metaData=<<%str%\n<buttonId=\"REFRESH\">\n<buttonMode=\"Disable\">\n%str%>\n<javascriptAttribute=<<%str%\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(true);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$control.button'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Enable or Disable a Button{T=4}{I:'a5_vertical_line'}Disable the refresh button\">\n>\n<[2]<action=\"Show Container Window.\">\n<icon=\"$$window.cascade\">\n<isCommentedOut=.F.>\n<comment=\"Show the data loading window\">\n<builder=\"a5ajs_ShowContainerWindow(v,wf,pv,dlg_mode)\">\n<metaData=<<%str%\n<containerID=\"WINDOW_4\">\n%str%>\n<javascriptAttribute=\"{dialog.object}.showContainerWindow(this,'WINDOW_4');\">\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$window.cascade'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Show Container Window.{T=4}{I:'a5_vertical_line'}Show the data loading window\">\n>\n<[3]<action=\"Client-side Data Cache Actions. (action: Refresh Data Item(s))\">\n<icon=\"$$database\">\n<isCommentedOut=.F.>\n<comment=\"refresh data from query\">\n<builder=\"a5ajs_Dialog_ListControlActions(v,wf,pv,dlg_mode,\\\"clientsidedatacache\\\")\">\n<metaData=<<%str%\n<cacheItemName=\"\">\n<cacheItemNames=\"sessions\">\n<cacheItemNames2=\"\">\n<listaction=\"Refresh Data Item(s)\">\n<javascript<OnSuccess=\"\">\n<onfail=\"\">\n<onComplete=\"\">\n<offline=\"\">\n<onServerNotAvailable=\"\">\n>\n<filter=\"\">\n<order=\"\">\n<cacheItemNames3=\"\">\n%str%>\n<javascriptAttribute=<<%str%\nvar _refresh = function() {\n;\n}\n{dialog.object}.refreshDataCacheItem('sessions',_refresh);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$database'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Client-side Data Cache Actions. (action: Refresh Data Item(s)){T=4}{I:'a5_vertical_line'}refresh data from query\">\n>\n<[4]<display=\"{I:'$$database'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Client-side Data Cache Actions. (action: Read Data){T=4}{I:'a5_vertical_line'}UpdateList1\">\n<action=\"Client-side Data Cache Actions. (action: Read Data)\">\n<icon=\"$$database\">\n<isCommentedOut=.F.>\n<comment=\"UpdateList1\">\n<builder=\"a5ajs_Dialog_ListControlActions(v,wf,pv,dlg_mode,\\\"clientsidedatacache\\\")\">\n<metaData=<<%str1%\n<cacheItemName=\"sessions\">\n<cacheItemNames=\"\">\n<cacheItemNames2=\"\">\n<listaction=\"Read Data\">\n<javascript<OnSuccess=<<%str%\n\n\nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);%str%>\n<onfail=\"\">\n<onComplete=\"\">\n<offline=\"\">\n<onServerNotAvailable=\"\">\n>\n<filter=\"data.sdate == '20180122'\">\n<order=\"sorder | Number\">\n<cacheItemNames3=\"\">\n%str1%>\n<javascriptAttribute=<<%str%\nvar _onOffline = function() { \n\n};\nvar _onServerNotAvailable = function() { \n;\n};\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list1');\nlObj.populate(data);;\n};\nvar _onFail = function() { \n;\n};\nvar _filter = 'data.sdate == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order,_onOffline,_onServerNotAvailable);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n>\n<[5]<action=\"Inline-Javascript (action: Read Data)\">\n<icon=\"a5_new_xbasic_script\">\n<isCommentedOut=.F.>\n<comment=\"UpdateList2\">\n<builder=\"a5ajs_Inline(v,dlg_mode,wf)\">\n<metaData=<<%str1%\n<inlineJavascript=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n%str1%>\n<javascriptAttribute=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list2');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'a5_new_xbasic_script'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Inline-Javascript (action: Read Data){T=4}{I:'a5_vertical_line'}UpdateList2\">\n>\n<[6]<action=\"Inline-Javascript (action: Read Data)\">\n<icon=\"a5_new_xbasic_script\">\n<isCommentedOut=.F.>\n<comment=\"UpdateList3\">\n<builder=\"a5ajs_Inline(v,dlg_mode,wf)\">\n<metaData=<<%str1%\n<inlineJavascript=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n%str1%>\n<javascriptAttribute=<<%str%\nvar _onSuccess = function(data) { \nvar lObj = {dialog.object}.getControl('list3');\nlObj.populate(data);\n};\nvar _onFail = function() { \n\n};\nvar _filter = 'data.SDATE == \\'20180122\\'';\nvar _order = {'sorder : number' : 1};\n{dialog.object}.getFromDataCache('sessions',_onSuccess,_onFail,_filter,_order);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'a5_new_xbasic_script'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Inline-Javascript (action: Read Data){T=4}{I:'a5_vertical_line'}UpdateList3\">\n>\n<[7]<action=\"Hide/Close Container Window.\">\n<icon=\"$$window.cascade\">\n<isCommentedOut=.F.>\n<comment=\"Hide the data loading window\">\n<builder=\"a5ajs_ShowContainerWindow(v,wf,pv,dlg_mode,\\\"close\\\")\">\n<metaData=<<%str%\n<containerID=\"WINDOW_4\">\n%str%>\n<javascriptAttribute=\"{dialog.object}.hideContainerWindow('WINDOW_4');\">\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$window.cascade'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Hide/Close Container Window.{T=4}{I:'a5_vertical_line'}Hide the data loading window\">\n>\n<[8]<action=\"Enable or Disable a Button\">\n<icon=\"$$control.button\">\n<isCommentedOut=.F.>\n<comment=\"Re-enable the refresh button\">\n<builder=\"a5ajs_GenericAction(v,wf,pv,dlg_mode,\\\"disableButton\\\")\">\n<metaData=<<%str%\n<buttonId=\"REFRESH\">\n<buttonMode=\"Enable\">\n%str%>\n<javascriptAttribute=<<%str%\nvar btn = {dialog.object}.getControl('REFRESH');\nbtn.setDisabled(false);%str%>\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n<display=\"{I:'$$control.button'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Enable or Disable a Button{T=4}{I:'a5_vertical_line'}Re-enable the refresh button\">\n>\n>\n<flagRunSynchronously=.T.>\n"
             },
             {
                 "actionGuid": "17e24067-fb08-4363-972d-6b4054df3a63         ",
@@ -7301,6 +7392,10 @@
                 "scriptMetaData": "<a_ajs<[1]<display=\"{I:'$$window.cascade'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Show Container Window.{T=4}{I:'a5_vertical_line'}Open the Description Window\">\n<action=\"Show Container Window.\">\n<icon=\"$$window.cascade\">\n<isCommentedOut=.F.>\n<comment=\"Open the Description Window\">\n<builder=\"a5ajs_ShowContainerWindow(v,wf,pv,dlg_mode)\">\n<metaData=<<%str%\n<containerID=\"WINDOW_3\">\n%str%>\n<javascriptAttribute=\"{dialog.object}.showContainerWindow(this,'WINDOW_3');\">\n<Javascriptdeclarations_row=\"\">\n<Javascriptdeclarations_global=\"\">\n<xbasicFunctions=\"\">\n>\n>\n<flagRunSynchronously=.F.>\n"
             }
         ],
+        "Livepreview_permissions": "",
+        "showJavascriptActions": false,
+        "showResponsiveLayoutHelp": false,
+        "__allowCascadingRecalc": true,
         "_flagDoTreeview": true,
         "mobileDeviceDefault": "iphone4_v",
         "a_dataSources": [
@@ -7333,7 +7428,33 @@
         ],
         "unboundActionShowOnNewActionMessage": true,
         "actionJavascriptUnboundLastEdited": "d382348e-0adc-4e96-93cb-fad851b1d438",
-        "containerSubTypeNew": "",
-        "containerSubTypeOld": ""
+        "minimumBuildNumber": "",
+        "_style_hasSassOverrides": false,
+        "_style_hasCSSTweaks": false,
+        "_style_hasCSS_or_subtheme_tweaks": false,
+        "useCompactTheme": false,
+        "styleTweaksCSS": "",
+        "styleTweaksSubthemes": "",
+        "createAppCacheVersion": false,
+        "createAppCacheVersionC": "No",
+        "appcache": {
+            "pageName": "<Default>",
+            "pageTitle": "",
+            "hasHomeScreenIcons": false,
+            "homeScreenIconName": "",
+            "icons": {
+                "precomposed": false
+            },
+            "pageHeadSection": ""
+        },
+        "clientsideNumberFormatDecimal": "period",
+        "clientsideNumberFormatThousands": "comma",
+        "dataSeriesPublishToClientSide": false,
+        "preRenderWarningMessageShow": true,
+        "autoSetPreRenderOnForAllUX": false,
+        "_style_hassubthemeTweaks": false,
+        "livePreview_permissions_friendly": "",
+        "_buildCount": "4",
+        "A5SaveTimeStamp": "20180120154100237"
     }
 }

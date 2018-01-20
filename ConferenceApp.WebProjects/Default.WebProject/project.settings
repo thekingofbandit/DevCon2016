@@ -1,7 +1,7 @@
 <publishADConfiguration=.F.>
 <securityStoreType="BuiltInSecurityTables">
-<default_page="">
-<local<target_folder="">
+<default_page="index.a5w">
+<local<target_folder="devcon2016">
 >
 <vars="">
 <aliases="">
@@ -16,10 +16,12 @@
 <DefaultValuePublishSupportFiles=.T.>
 <DefaultValuePublishSelectedOnly=.F.>
 <DefaultflagCheckBeforePublish=.T.>
-<SecurityGuid="3a087a638bff4a80ac97186e67d9d6dd">
+<SecurityGuid="78c584d7c5344258a804a4cc98b58628">
 <PublishAsBinary=.F.>
 <DefaultValueCheckSecurityAllowed=.F.>
 <DefaultValueCreateAEX=.F.>
+<PublishMetaData=.T.>
+<DefaultValuePublishDatabaseLibrary=.F.>
 >
 <rtClk<CheckSecurityAllowed=.F.>
 <CheckBeforePublish=.F.>
@@ -350,3 +352,6 @@
 >
 >
 <lastbutton="Cancel">
+<debugger<allow=.F.>
+>
+<activeDirectory>

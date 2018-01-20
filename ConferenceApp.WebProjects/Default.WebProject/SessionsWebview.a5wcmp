@@ -36,6 +36,7 @@
             "__afterAjaxCallbackComplete": "",
             "onAjaxCallbackFailed": "",
             "onAjaxCallbackNotAvailable": "",
+            "onAjaxCallbackNotAllowed": "",
             "onServerSideEventHandlerError": "",
             "onFieldValidationError": "",
             "beforePrepare": "",
@@ -60,6 +61,7 @@
             "onSynchronizeDialog": "",
             "afterPopulateFromTable": "",
             "onRenderComplete": "",
+            "onAndroidBackButton": "",
             "onPanelActivate": "",
             "afterSaveToRepository": "",
             "afterLoadFromRepository": "",
@@ -104,7 +106,10 @@
             "securityPermissionDenied": "",
             "webSocketOnMessage": "",
             "webSocketServerClose": "",
-            "webSocketSendMessageFail": ""
+            "webSocketSendMessageFail": "",
+            "afterGoogleAddressSelect": "",
+            "onBeforeClientSideDataCacheRead": "",
+            "afterClientSideDataCacheAjaxCallback": ""
         },
         "onlyValidateChangedFields": true,
         "edit": {
@@ -152,7 +157,7 @@
         "info": {
             "createdBy": "davidmccormick",
             "dateCreated": "2016-7-22",
-            "dateLastEdited": "2016-7-22"
+            "dateLastEdited": "2018-1-20"
         },
         "flagShowCommentsInTree": true,
         "treeCommentOffset": "6",
@@ -186,21 +191,14 @@
         "preRenderComputeWhen": "Every time component is saved",
         "page_fields": [
             {
-                "controltype": "layout_directive_button",
+                "controlType": "layout_directive_button",
                 "display": "{B=White,Light Blue}{Data=b4caa712-9028-4312-bde0-1833aa2aaa1e}{I:'$$control.button'} [Button: Export All Data to E] ¶",
                 "displayODFlat": "{Data=b4caa712-9028-4312-bde0-1833aa2aaa1e}{I:'$$control.button'} [Button]",
-                "displayOD": "{B=White,Light Blue}{Data=b4caa712-9028-4312-bde0-1833aa2aaa1e}{I:'$$control.button'} [Button]",
-                "displayODtree": "{B=White,Light Blue}{Data=b4caa712-9028-4312-bde0-1833aa2aaa1e}{I:'$$control.button'} [Button: Export All Data to E] ¶",
                 "idInternal": "b4caa712-9028-4312-bde0-1833aa2aaa1e",
                 "parentContainer": -1,
-                "inPanelCard": false,
-                "inTreeControl": false,
+                "displayOD": "{B=White,Light Blue}{Data=b4caa712-9028-4312-bde0-1833aa2aaa1e}{I:'$$control.button'} [Button]",
                 "repeatingSectionParentId": -1,
-                "indentTree": 0,
-                "precalc": {
-                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_1\"    ></button>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
-                    "DesignViewHTML": ""
-                },
+                "displayODtree": "{B=White,Light Blue}{Data=b4caa712-9028-4312-bde0-1833aa2aaa1e}{I:'$$control.button'} [Button: Export All Data to E] ¶",
                 "crc": "4294938077",
                 "v": {
                     "buttonText": "Export All Data to Excel",
@@ -259,7 +257,14 @@
                     "javascript": {
                         "onclick": ""
                     }
-                }
+                },
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_1\"    ></button>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
+                    "DesignViewHTML": ""
+                },
+                "inPanelCard": false,
+                "inTreeControl": false
             },
             {
                 "controlType": "dialog_formcontrol",
@@ -270,7 +275,10 @@
                 "displayOD": "{B=White,Light Blue}{Data=25cf0321-3133-40ab-8671-e5796f63323b}{I:'$$control.browse'} [Sessions]",
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{B=White,Light Blue}{Data=25cf0321-3133-40ab-8671-e5796f63323b}{I:'$$control.browse'} [Sessions]",
-                "crc": "4294933965",
+                "crc": "4294902201",
+                "indentTree": 0,
+                "inPanelCard": false,
+                "inTreeControl": false,
                 "v": {
                     "controlType": "List",
                     "variableName": "Sessions",
@@ -279,13 +287,7 @@
                     "watermark": {
                         "text": "<FieldLabel>"
                     },
-                    "precalc": {
-                        "controlHTMLInPanelCard": "in panel card",
-                        "javascript_listViewData": "{dialog.object}._listViewData['SESSIONS'] = [[dialog.listViewData.Sessions]]; ",
-                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['SESSIONS'] = [[dialog.listViewSettings.Sessions]]; ",
-                        "javascript_listview": "{dialog.object}._controls['SESSIONS'] =  { type: 'list',  data: {dialog.object}._listViewData['SESSIONS'],  settings: {dialog.object}._listViewSettings['SESSIONS'] }",
-                        "javascriptAbstractSetupCode": ""
-                    },
+                    "textboxSubTheme": "",
                     "textboxAutocorrect": true,
                     "textboxAutoCapitalize": true,
                     "label": "DevCon 2016 Sessions",
@@ -305,6 +307,8 @@
                     "clientSideFormat": {
                         "type": "Mask"
                     },
+                    "getFunction": "",
+                    "setFunction": "",
                     "onChange_ValidationOption": "Client-side only",
                     "dataBinding": {
                         "updateable": true,
@@ -312,13 +316,18 @@
                             "type": "JPG",
                             "noImageFoundImage": "<None>",
                             "newRecordImage": "<None>"
+                        },
+                        "ink": {
+                            "hasbackgroundimage": false,
+                            "backgroundimage": "",
+                            "inkunits": 1
                         }
                     },
-                    "textboxSubTheme": "",
                     "listView": {
                         "class": "<Default>",
                         "style": "",
                         "dataSourceType": "SQL",
+                        "overrides": "",
                         "flagIsDefined": true,
                         "staticData": "",
                         "staticJSONData": "",
@@ -394,17 +403,19 @@
                             "flagTableInfoHasBeenUpdated": false,
                             "connectionString": "::Name::AASolutions",
                             "selectType": "FieldsFromTable",
-                            "tablename": "devconapp",
-                            "fieldlist": "sessionid,name,description,starttime,endtime,track,sdate,sorder,show,icon",
+                            "tablename": "sessions",
+                            "fieldlist": "SESSIONID,NAME,DESCRIPTION,STARTTIME,ENDTIME,TRACK,SDATE,SORDER,SHOW,ICON",
                             "filter": "",
                             "distinct": false,
-                            "order": "sorder",
-                            "sqlstatement": "SELECT sessionid, name, description, starttime, endtime, track, sdate, sorder, show, icon FROM devconapp   ORDER BY sorder",
+                            "order": "SORDER",
+                            "sqlstatement": "SELECT SESSIONID, NAME, DESCRIPTION, STARTTIME, ENDTIME, TRACK, SDATE, SORDER, SHOW, ICON FROM sessions   ORDER BY SORDER",
                             "portableSQL": true,
                             "first": -1,
-                            "primaryKey": "sessionid",
+                            "primaryKey": "SESSIONID",
                             "serverSideAfterQueryEvent": "",
-                            "serverSideBeforeQueryEvent": ""
+                            "serverSideBeforeQueryEvent": "",
+                            "sqlSecurityJSON": "",
+                            "serversidedatenumberformatjson": ""
                         },
                         "dbf": {
                             "dataReturnType": "Field",
@@ -438,6 +449,7 @@
                             "onNavigate": "",
                             "onSelect": "",
                             "onBeforeSelect": "",
+                            "afterSelect": "",
                             "onDblClick": "",
                             "onClick": "",
                             "onRightClick": "",
@@ -455,6 +467,7 @@
                             "afterPageNavigate": "",
                             "beforeRefreshRow": "",
                             "afterRefreshRow": "",
+                            "afterRefreshData": "",
                             "afterRenderComplete": "",
                             "afterAjaxCallback": "",
                             "beforeClientSideFilter": "",
@@ -476,7 +489,8 @@
                             "onSearchResultTooLargeForLocalStorage": "",
                             "onBeforePersistToLocalStorage": "",
                             "onPersistToLocalStorage": "",
-                            "onRestoreFromLocalStorage": ""
+                            "onRestoreFromLocalStorage": "",
+                            "onListReady": ""
                         },
                         "pullpastEnd": {
                             "YSetting": "auto",
@@ -529,7 +543,12 @@
                             "maxSearchSizeJSON": ""
                         },
                         "includeCRC": false,
+                        "userDefinedMethodsJSON": "",
+                        "reverseColumnOrder": false,
                         "persistDataToLocalStorage": false,
+                        "persistWhere": "LocalStorage",
+                        "persistMode": "Full",
+                        "incrementalRefreshAfterLoad": false,
                         "versionNumber": 1,
                         "hasDetailView": false,
                         "detailView": {
@@ -639,6 +658,7 @@
                                 "afterNewRecord": "",
                                 "modeChanged": "",
                                 "afterDetailViewPopulate": "",
+                                "beforeDetailViewPopulate": "",
                                 "beforeMediaFilesUploaded": "",
                                 "afterMediaFilesUploaded": "",
                                 "onMediaFilesUploadErrors": "",
@@ -651,7 +671,9 @@
                             "serverSideEvent": {
                                 "validate": "",
                                 "errorMessageTranslate": "",
-                                "onsynchronize": ""
+                                "onsynchronize": "",
+                                "aftersynchronize": "",
+                                "aftersynchronizeRecord": ""
                             }
                         },
                         "dragScrollMomentum": true,
@@ -692,7 +714,7 @@
                         "fieldsArray": {
                             "fields": [
                                 {
-                                    "name": "sessionid",
+                                    "name": "SESSIONID",
                                     "type": "N",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -706,7 +728,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "sessionid",
+                                    "baseExpression": "SESSIONID",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -759,7 +781,8 @@
                                         "style": "",
                                         "bubbleHelp": "",
                                         "onClick": "",
-                                        "stopPropagation": false
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
                                     },
                                     "serverSideSummaryFieldsHas": false,
                                     "serverSideSummaryFields": "",
@@ -786,13 +809,14 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "sessionid",
-                                    "display": "{data=1}{I:'$$control.smartField'} sessionid (N)",
+                                    "baseName": "SESSIONID",
+                                    "display": "{data=1}{I:'$$control.smartField'} SESSIONID (N)",
                                     "deleteField": false,
-                                    "xbfunction": ""
+                                    "xbfunction": "",
+                                    "hide": false
                                 },
                                 {
-                                    "name": "name",
+                                    "name": "NAME",
                                     "type": "C",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -806,7 +830,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "name",
+                                    "baseExpression": "NAME",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -859,7 +883,8 @@
                                         "style": "",
                                         "bubbleHelp": "",
                                         "onClick": "",
-                                        "stopPropagation": false
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
                                     },
                                     "serverSideSummaryFieldsHas": false,
                                     "serverSideSummaryFields": "",
@@ -886,13 +911,14 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "name",
-                                    "display": "{data=2}{I:'$$control.smartField'} name (C)",
+                                    "baseName": "NAME",
+                                    "display": "{data=2}{I:'$$control.smartField'} NAME (C)",
                                     "deleteField": false,
-                                    "xbfunction": ""
+                                    "xbfunction": "",
+                                    "hide": false
                                 },
                                 {
-                                    "name": "description",
+                                    "name": "DESCRIPTION",
                                     "type": "C",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -906,7 +932,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "description",
+                                    "baseExpression": "DESCRIPTION",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -986,13 +1012,13 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "description",
-                                    "display": "{data=3}{I:'$$control.smartField'} description (C)",
+                                    "baseName": "DESCRIPTION",
+                                    "display": "{data=3}{I:'$$control.smartField'} DESCRIPTION (C)",
                                     "deleteField": false,
                                     "xbfunction": ""
                                 },
                                 {
-                                    "name": "starttime",
+                                    "name": "STARTTIME",
                                     "type": "C",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -1006,7 +1032,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "starttime",
+                                    "baseExpression": "STARTTIME",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -1086,13 +1112,13 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "starttime",
-                                    "display": "{data=4}{I:'$$control.smartField'} starttime (C)",
+                                    "baseName": "STARTTIME",
+                                    "display": "{data=4}{I:'$$control.smartField'} STARTTIME (C)",
                                     "deleteField": false,
                                     "xbfunction": ""
                                 },
                                 {
-                                    "name": "endtime",
+                                    "name": "ENDTIME",
                                     "type": "C",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -1106,7 +1132,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "endtime",
+                                    "baseExpression": "ENDTIME",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -1159,7 +1185,8 @@
                                         "style": "",
                                         "bubbleHelp": "",
                                         "onClick": "",
-                                        "stopPropagation": false
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
                                     },
                                     "serverSideSummaryFieldsHas": false,
                                     "serverSideSummaryFields": "",
@@ -1186,13 +1213,14 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "endtime",
-                                    "display": "{data=5}{I:'$$control.smartField'} endtime (C)",
+                                    "baseName": "ENDTIME",
+                                    "display": "{data=5}{I:'$$control.smartField'} ENDTIME (C)",
                                     "deleteField": false,
-                                    "xbfunction": ""
+                                    "xbfunction": "",
+                                    "hide": false
                                 },
                                 {
-                                    "name": "track",
+                                    "name": "TRACK",
                                     "type": "N",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -1206,7 +1234,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "track",
+                                    "baseExpression": "TRACK",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -1286,13 +1314,13 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "track",
-                                    "display": "{data=6}{I:'$$control.smartField'} track (N)",
+                                    "baseName": "TRACK",
+                                    "display": "{data=6}{I:'$$control.smartField'} TRACK (N)",
                                     "deleteField": false,
                                     "xbfunction": ""
                                 },
                                 {
-                                    "name": "sdate",
+                                    "name": "SDATE",
                                     "type": "C",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -1306,7 +1334,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "sdate",
+                                    "baseExpression": "SDATE",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -1386,13 +1414,13 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "sdate",
-                                    "display": "{data=7}{I:'$$control.smartField'} sdate (C)",
+                                    "baseName": "SDATE",
+                                    "display": "{data=7}{I:'$$control.smartField'} SDATE (C)",
                                     "deleteField": false,
                                     "xbfunction": ""
                                 },
                                 {
-                                    "name": "sorder",
+                                    "name": "SORDER",
                                     "type": "N",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -1406,7 +1434,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "sorder",
+                                    "baseExpression": "SORDER",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -1486,13 +1514,113 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "sorder",
-                                    "display": "{data=8}{I:'$$control.smartField'} sorder (N)",
+                                    "baseName": "SORDER",
+                                    "display": "{data=8}{I:'$$control.smartField'} SORDER (N)",
                                     "deleteField": false,
                                     "xbfunction": ""
                                 },
                                 {
-                                    "name": "show",
+                                    "name": "SHOW",
+                                    "type": "L",
+                                    "displayFormat": "",
+                                    "serverSideInlineStyle": "",
+                                    "serverSideConditionalStyle": "",
+                                    "securityGroups": "",
+                                    "javascriptAddressible": false,
+                                    "serversideShowhideExpn": "",
+                                    "clientSideShowHideExpn": "",
+                                    "controlType": "Label",
+                                    "clientsideInlineStyle": "",
+                                    "wordwrap": false,
+                                    "wordwrapOption": "normal",
+                                    "clientsideClass": "",
+                                    "baseExpression": "SHOW",
+                                    "searchPropertiesJSON": "",
+                                    "image": {
+                                        "base64Encode": false,
+                                        "type": "JPG",
+                                        "scale": "",
+                                        "fileNameTransformation": "",
+                                        "imageDataType": "Name",
+                                        "base64Prefix": "data:image/jpg;base64,",
+                                        "noImageFoundImage": ""
+                                    },
+                                    "sourceTableType": "",
+                                    "detailview": {
+                                        "serversidevalidation": "",
+                                        "defaultValueJavascript": "",
+                                        "onDetailViewPopulateJavascript": "",
+                                        "onListUpdateFromDetailView": "",
+                                        "updateable": true,
+                                        "checkforwriteConflicts": true,
+                                        "blankIsNull": false,
+                                        "updatePermissionSecurityGroups": "",
+                                        "serverSidePermissionExpression": "",
+                                        "imageCapturePropertiesJSON": "",
+                                        "ExifCapturePropertiesJSON": ""
+                                    },
+                                    "button": {
+                                        "label": "Button",
+                                        "bubblehelp": "",
+                                        "class": "",
+                                        "style": "",
+                                        "onClick": "",
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
+                                    },
+                                    "hyperlink": {
+                                        "label": "Hyperlink",
+                                        "bubblehelp": "",
+                                        "class": "",
+                                        "style": "",
+                                        "onClick": "",
+                                        "actionType": "Javascript",
+                                        "href": "",
+                                        "target": "New Window",
+                                        "stopPropagation": false,
+                                        "giveFocusToRowOnClick": false
+                                    },
+                                    "unboundtype": "",
+                                    "dynamicImage": {
+                                        "definition": "",
+                                        "class": "",
+                                        "style": "",
+                                        "bubbleHelp": "",
+                                        "onClick": "",
+                                        "stopPropagation": false
+                                    },
+                                    "serverSideSummaryFieldsHas": false,
+                                    "serverSideSummaryFields": "",
+                                    "clientSideSummaryFieldsHas": false,
+                                    "clientSideTypeTransform": "None",
+                                    "clientSideDateTemplate": "MM-dd-yyyy",
+                                    "clientSideDateFormat": "<None>",
+                                    "clientSideNumericFormat": "",
+                                    "customControl": {
+                                        "definition": ""
+                                    },
+                                    "isComputedColumn": false,
+                                    "ink": {
+                                        "width": "300",
+                                        "height": "",
+                                        "sizeMethod": "Width-Height",
+                                        "scale": 0.25,
+                                        "zoom": "50%",
+                                        "boundsType": "Page",
+                                        "boundsMargin": 10,
+                                        "boundsX": 0,
+                                        "boundsY": 0,
+                                        "boundsWidth": 100,
+                                        "boundsHeight": 100
+                                    },
+                                    "unboundField": false,
+                                    "baseName": "SHOW",
+                                    "display": "{data=9}{I:'$$control.smartField'} SHOW (L)",
+                                    "deleteField": false,
+                                    "xbfunction": ""
+                                },
+                                {
+                                    "name": "ICON",
                                     "type": "C",
                                     "displayFormat": "",
                                     "serverSideInlineStyle": "",
@@ -1506,7 +1634,7 @@
                                     "wordwrap": false,
                                     "wordwrapOption": "normal",
                                     "clientsideClass": "",
-                                    "baseExpression": "show",
+                                    "baseExpression": "ICON",
                                     "searchPropertiesJSON": "",
                                     "image": {
                                         "base64Encode": false,
@@ -1586,108 +1714,8 @@
                                         "boundsHeight": 100
                                     },
                                     "unboundField": false,
-                                    "baseName": "show",
-                                    "display": "{data=9}{I:'$$control.smartField'} show (C)",
-                                    "deleteField": false,
-                                    "xbfunction": ""
-                                },
-                                {
-                                    "name": "icon",
-                                    "type": "C",
-                                    "displayFormat": "",
-                                    "serverSideInlineStyle": "",
-                                    "serverSideConditionalStyle": "",
-                                    "securityGroups": "",
-                                    "javascriptAddressible": false,
-                                    "serversideShowhideExpn": "",
-                                    "clientSideShowHideExpn": "",
-                                    "controlType": "Label",
-                                    "clientsideInlineStyle": "",
-                                    "wordwrap": false,
-                                    "wordwrapOption": "normal",
-                                    "clientsideClass": "",
-                                    "baseExpression": "icon",
-                                    "searchPropertiesJSON": "",
-                                    "image": {
-                                        "base64Encode": false,
-                                        "type": "JPG",
-                                        "scale": "",
-                                        "fileNameTransformation": "",
-                                        "imageDataType": "Name",
-                                        "base64Prefix": "data:image/jpg;base64,",
-                                        "noImageFoundImage": ""
-                                    },
-                                    "sourceTableType": "",
-                                    "detailview": {
-                                        "serversidevalidation": "",
-                                        "defaultValueJavascript": "",
-                                        "onDetailViewPopulateJavascript": "",
-                                        "onListUpdateFromDetailView": "",
-                                        "updateable": true,
-                                        "checkforwriteConflicts": true,
-                                        "blankIsNull": false,
-                                        "updatePermissionSecurityGroups": "",
-                                        "serverSidePermissionExpression": "",
-                                        "imageCapturePropertiesJSON": "",
-                                        "ExifCapturePropertiesJSON": ""
-                                    },
-                                    "button": {
-                                        "label": "Button",
-                                        "bubblehelp": "",
-                                        "class": "",
-                                        "style": "",
-                                        "onClick": "",
-                                        "stopPropagation": false,
-                                        "giveFocusToRowOnClick": false
-                                    },
-                                    "hyperlink": {
-                                        "label": "Hyperlink",
-                                        "bubblehelp": "",
-                                        "class": "",
-                                        "style": "",
-                                        "onClick": "",
-                                        "actionType": "Javascript",
-                                        "href": "",
-                                        "target": "New Window",
-                                        "stopPropagation": false,
-                                        "giveFocusToRowOnClick": false
-                                    },
-                                    "unboundtype": "",
-                                    "dynamicImage": {
-                                        "definition": "",
-                                        "class": "",
-                                        "style": "",
-                                        "bubbleHelp": "",
-                                        "onClick": "",
-                                        "stopPropagation": false
-                                    },
-                                    "serverSideSummaryFieldsHas": false,
-                                    "serverSideSummaryFields": "",
-                                    "clientSideSummaryFieldsHas": false,
-                                    "clientSideTypeTransform": "None",
-                                    "clientSideDateTemplate": "MM-dd-yyyy",
-                                    "clientSideDateFormat": "<None>",
-                                    "clientSideNumericFormat": "",
-                                    "customControl": {
-                                        "definition": ""
-                                    },
-                                    "isComputedColumn": false,
-                                    "ink": {
-                                        "width": "300",
-                                        "height": "",
-                                        "sizeMethod": "Width-Height",
-                                        "scale": 0.25,
-                                        "zoom": "50%",
-                                        "boundsType": "Page",
-                                        "boundsMargin": 10,
-                                        "boundsX": 0,
-                                        "boundsY": 0,
-                                        "boundsWidth": 100,
-                                        "boundsHeight": 100
-                                    },
-                                    "unboundField": false,
-                                    "baseName": "icon",
-                                    "display": "{data=10}{I:'$$control.smartField'} icon (C)",
+                                    "baseName": "ICON",
+                                    "display": "{data=10}{I:'$$control.smartField'} ICON (C)",
                                     "deleteField": false,
                                     "xbfunction": ""
                                 }
@@ -1701,7 +1729,7 @@
                                     "isDefaultLayout": true,
                                     "friendlyName": "",
                                     "showColumnTitles": true,
-                                    "template": "<table><tr>\n<td width=\"100px\">\n{*if sdate=='20160921'}Wednesday{*endif}\n{*if sdate=='20160922'}Thursday{*endif}\n{*if sdate=='20160923'}Friday{*endif}\n\n\n</td>\n<td width=\"100px\" align=\"right\">{starttime}</td>\n<td width=\"100px\" align=\"right\">{endtime}</td>\n<td width=\"60px\" align=\"center\">{track}</td>\n<td width=\"500px\">{name}</td>\n</tr></table>",
+                                    "template": "<table><tr>\n<td width=\"100px\">\n{*if SDATE=='20160921'}Wednesday{*endif}\n{*if SDATE=='20160922'}Thursday{*endif}\n{*if SDATE=='20160923'}Friday{*endif}\n\n\n</td>\n<td width=\"100px\" align=\"right\">{STARTTIME}</td>\n<td width=\"100px\" align=\"right\">{ENDTIME}</td>\n<td width=\"60px\" align=\"center\">{TRACK}</td>\n<td width=\"500px\">{NAME}</td>\n</tr></table>",
                                     "snakingLayoutWidth": "1in",
                                     "itemHeight": "",
                                     "freeformType": "Vertical",
@@ -1737,6 +1765,61 @@
                                     ]
                                 }
                             ]
+                        },
+                        "dataBinding": {
+                            "tablesArray": {
+                                "tables": [
+                                    {
+                                        "table": "sessions",
+                                        "owner": "",
+                                        "alias": "sessions",
+                                        "primaryKeyFields": "sessionid",
+                                        "mapPrimaryKeyToListQuery": "",
+                                        "primaryKeyIsAutoIncrement": false,
+                                        "sequenceName": "",
+                                        "sqlInsertSequence": "",
+                                        "tableInfo": "SESSIONID=N|F|T|Number|!!|SESSIONID\nNAME=C|F|T|NationalVaryingCharacter|!!|NAME\nDESCRIPTION=C|F|F|NationalVaryingCharacter|!!|DESCRIPTION\nSTARTTIME=C|F|T|NationalVaryingCharacter|!!|STARTTIME\nENDTIME=C|F|T|NationalVaryingCharacter|!!|ENDTIME\nTRACK=N|F|T|Number|!!|TRACK\nSDATE=C|F|T|NationalVaryingCharacter|!!|SDATE\nSORDER=N|F|T|Number|!!|SORDER\nSHOW=L|F|T|Boolean|!!|SHOW\nICON=C|F|T|NationalVaryingCharacter|!!|ICON\n",
+                                        "tableInfoCRC": 4294965121,
+                                        "updateWhereClause": "{SESSIONID}=(SESSIONID = :old_SESSIONID OR SESSIONID IS NULL AND :old_SESSIONID IS NULL)\n{NAME}=(NAME = :old_NAME OR NAME IS NULL AND :old_NAME IS NULL)\n{DESCRIPTION}=(DESCRIPTION = :old_DESCRIPTION OR DESCRIPTION IS NULL AND :old_DESCRIPTION IS NULL)\n{STARTTIME}=(STARTTIME = :old_STARTTIME OR STARTTIME IS NULL AND :old_STARTTIME IS NULL)\n{ENDTIME}=(ENDTIME = :old_ENDTIME OR ENDTIME IS NULL AND :old_ENDTIME IS NULL)\n{TRACK}=(TRACK = :old_TRACK OR TRACK IS NULL AND :old_TRACK IS NULL)\n{SDATE}=(SDATE = :old_SDATE OR SDATE IS NULL AND :old_SDATE IS NULL)\n{SORDER}=(SORDER = :old_SORDER OR SORDER IS NULL AND :old_SORDER IS NULL)\n{SHOW}=SHOW = :old_SHOW\n{ICON}=(ICON = :old_ICON OR ICON IS NULL AND :old_ICON IS NULL)\n",
+                                        "updateWhereClauseNative": "",
+                                        "allowInsert": true,
+                                        "allowUpdate": true,
+                                        "allowDelete": true,
+                                        "deleteType": "Hard",
+                                        "deleteField": "",
+                                        "readonly": false,
+                                        "securityGroups_insert": "",
+                                        "securityGroups_update": "",
+                                        "securityGroups_delete": "",
+                                        "serversidePermission_insert": "",
+                                        "serversidePermission_update": "",
+                                        "serversidePermission_delete": "",
+                                        "joinDefinition": "",
+                                        "parentAlias": "",
+                                        "events": {
+                                            "beforeInsert": "",
+                                            "beforeUpdate": "",
+                                            "beforeDelete": "",
+                                            "afterInsert": "",
+                                            "afterUpdate": "",
+                                            "afterDelete": "",
+                                            "onWriteConflict": "",
+                                            "onSQLError": ""
+                                        },
+                                        "geography": {
+                                            "geocodeFieldDefinition": "",
+                                            "locationFieldDefinition": ""
+                                        },
+                                        "flagStoreLocationInformationC": "No",
+                                        "flagStoreLocationInformation": false,
+                                        "latField": "",
+                                        "lngField": "",
+                                        "flagUpdateLocationField": false,
+                                        "storeLocationWhen": "InsertOnly",
+                                        "locationFieldNameForLatLng": ""
+                                    }
+                                ]
+                            }
                         },
                         "odata": {
                             "url": "http://services.odata.org/V4/Northwind/Northwind.svc",
@@ -1777,6 +1860,8 @@
                             "geographyUnits": "Meters|Meters"
                         },
                         "allowNullSelection": true,
+                        "allowAnyValue": false,
+                        "allowTextSelection": false,
                         "allowNullDeselection": false,
                         "loopNavigate": false,
                         "loopNavigateNullSelection": false,
@@ -1857,60 +1942,6 @@
                         },
                         "precalc": {
                             "javascriptOnOrientationChange": ""
-                        },
-                        "dataBinding": {
-                            "tablesArray": {
-                                "tables": [
-                                    {
-                                        "table": "devconapp",
-                                        "owner": "",
-                                        "alias": "devconapp",
-                                        "primaryKeyFields": "sessionid",
-                                        "mapPrimaryKeyToListQuery": "",
-                                        "primaryKeyIsAutoIncrement": true,
-                                        "sequenceName": "",
-                                        "sqlInsertSequence": "",
-                                        "tableInfo": "sessionid=N|T|T|Integer32|!!|sessionid\nname=C|F|T|Character|!!|name\ndescription=C|F|T|VaryingCharacter|!!|description\nstarttime=C|F|T|Character|!!|starttime\nendtime=C|F|T|Character|!!|endtime\ntrack=N|F|T|Number|!!|track\nsdate=C|F|T|Character|!!|sdate\nsorder=N|F|T|Number|!!|sorder\nshow=C|F|T|Character|!!|show\nicon=C|F|T|Character|!!|icon\n",
-                                        "tableInfoCRC": 4294945511,
-                                        "updateWhereClause": "{sessionid}=sessionid = :old_sessionid\n{name}=(name = :old_name OR name IS NULL AND :old_name IS NULL)\n{description}=(description = :old_description OR description IS NULL AND :old_description IS NULL)\n{starttime}=(starttime = :old_starttime OR starttime IS NULL AND :old_starttime IS NULL)\n{endtime}=(endtime = :old_endtime OR endtime IS NULL AND :old_endtime IS NULL)\n{track}=(track = :old_track OR track IS NULL AND :old_track IS NULL)\n{sdate}=(sdate = :old_sdate OR sdate IS NULL AND :old_sdate IS NULL)\n{sorder}=(sorder = :old_sorder OR sorder IS NULL AND :old_sorder IS NULL)\n{show}=(show = :old_show OR show IS NULL AND :old_show IS NULL)\n{icon}=(icon = :old_icon OR icon IS NULL AND :old_icon IS NULL)\n",
-                                        "updateWhereClauseNative": "",
-                                        "allowInsert": true,
-                                        "allowUpdate": true,
-                                        "allowDelete": true,
-                                        "deleteType": "Hard",
-                                        "deleteField": "",
-                                        "readonly": false,
-                                        "securityGroups_insert": "",
-                                        "securityGroups_update": "",
-                                        "securityGroups_delete": "",
-                                        "serversidePermission_insert": "",
-                                        "serversidePermission_update": "",
-                                        "serversidePermission_delete": "",
-                                        "joinDefinition": "",
-                                        "parentAlias": "",
-                                        "events": {
-                                            "beforeInsert": "",
-                                            "beforeUpdate": "",
-                                            "beforeDelete": "",
-                                            "afterInsert": "",
-                                            "afterUpdate": "",
-                                            "afterDelete": "",
-                                            "onWriteConflict": ""
-                                        },
-                                        "geography": {
-                                            "geocodeFieldDefinition": "",
-                                            "locationFieldDefinition": ""
-                                        },
-                                        "flagStoreLocationInformationC": "No",
-                                        "flagStoreLocationInformation": false,
-                                        "latField": "",
-                                        "lngField": "",
-                                        "flagUpdateLocationField": false,
-                                        "storeLocationWhen": "InsertOnly",
-                                        "locationFieldNameForLatLng": ""
-                                    }
-                                ]
-                            }
                         }
                     },
                     "datePicker": {
@@ -1933,33 +1964,59 @@
                         "display": false
                     },
                     "displayAsSlider": false,
+                    "precalc": {
+                        "controlHTMLInPanelCard": "in panel card",
+                        "javascript_listViewData": "{dialog.object}._listViewData['SESSIONS'] = [[dialog.listViewData.Sessions]]; ",
+                        "javascript_listViewSettings": "{dialog.object}._listViewSettings['SESSIONS'] = [[dialog.listViewSettings.Sessions]]; ",
+                        "javascript_listview": "{dialog.object}._controls['SESSIONS'] =  { type: 'list',  data: {dialog.object}._listViewData['SESSIONS'],  settings: {dialog.object}._listViewSettings['SESSIONS'] }",
+                        "javascriptAbstractSetupCode": ""
+                    },
                     "flags": {
                         "clientSideDefinition": false
                     }
                 },
-                "indentTree": 0,
                 "precalc": {
                     "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 900px\" >\n\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.SESSIONS\" for=\"{grid.componentname}.V.R{grid.rownumber}.SESSIONS\" title=\"\" class=\"[class.dialogFieldLabel]\" style=\"display:block;\">DevCon 2016 Sessions</label>\n<!--LblE-->\n\t<!--FldS--><!--JSControlStart--><input type=\"hidden\" id=\"{grid.componentname}.V.R{grid.rownumber}.SESSIONS\" name=\"V.R{grid.rownumber}.SESSIONS\" /><!--JSControlEnd-->\n<div  class=\"[theme:listBox.base.className|{dialog.style}List]\"   style=\"padding:0px; \"  >\n\t<div id=\"{grid.componentname}.V.R{grid.rownumber}.SESSIONS.CONTROL\"  class=\"{grid.componentName}_SESSIONS\" style=\"overflow: auto; width: 100%; \"></div>\n</div>\n<!--FldE-->\n</div>",
                     "DesignViewHTML": "",
                     "columnInfo": "'SESSIONS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
-                },
-                "inPanelCard": false,
-                "inTreeControl": false
+                }
             }
         ],
         "builderType": "Dialog2",
         "guid": "6b6f94f8-4885-4ad0-925b-f10cd84fb9e6",
         "componentName": "SessionsWebview",
-        "componentFilename": "Y:\\Documents\\alpha\\20160721 Confapp\\ConferenceApp.WebProjects\\Default.WebProject\\SessionsWebview.a5wcmp",
-        "_style_versionNumber": -1,
+        "componentFilename": "C:\\Users\\Administrator\\Documents\\Git\\DevCon2016\\ConferenceApp.WebProjects\\Default.WebProject\\SessionsWebview.a5wcmp",
+        "_style_versionNumber": 3,
+        "_style_hasSassOverrides": false,
+        "_style_hasCSSTweaks": false,
+        "_style_hasCSS_or_subtheme_tweaks": false,
+        "useCompactTheme": false,
+        "styleTweaksCSS": "",
+        "styleTweaksSubthemes": "",
         "controlflowdirection": "ltr",
         "SVGLinkedFiles": "",
         "localsvg": "",
+        "createAppCacheVersion": false,
+        "createAppCacheVersionC": "No",
+        "appcache": {
+            "pageName": "<Default>",
+            "pageTitle": "",
+            "hasHomeScreenIcons": false,
+            "homeScreenIconName": "",
+            "icons": {
+                "precomposed": false
+            },
+            "pageHeadSection": ""
+        },
+        "clientsideNumberFormatDecimal": "period",
+        "clientsideNumberFormatThousands": "comma",
+        "dataSeriesPublishToClientSide": false,
         "showLineNumbersInControlsList": false,
-        "customSettingsJSON": "",
         "saveFileType": "Formatted JSON",
         "keyboardShortcutsJSON": "",
-        "selected": "b4caa712-9028-4312-bde0-1833aa2aaa1e\n",
+        "preRenderWarningMessageShow": true,
+        "autoSetPreRenderOnForAllUX": false,
+        "selected": "25cf0321-3133-40ab-8671-e5796f63323b\n",
         "designPaneIndex": 1,
         "masterPaneC": "controls",
         "serverSideEventIndex": 1,
@@ -1967,13 +2024,37 @@
         "clientSideEventIndexC": "1",
         "lastControlSelected": "insert_layout_directive_button",
         "__WPhostName": "Chrome",
+        "_style_hassubthemeTweaks": false,
         "repeatingSectionsAreDirty": true,
+        "containerSubTypeNew": "",
+        "containerSubTypeOld": "",
+        "flagDropdownCascadingChanged": false,
+        "toolBox_value": "",
+        "addinBuildNumber": "4932",
+        "addinBuildNumberHighestUsed": "4932",
+        "alphaFiveBuildNumber": "12",
         "openedFromTemplate": false,
+        "builtWithVersionNumer": 1,
+        "_buildCount": "5",
+        "securityEnabled": false,
+        "showHideIsUsed": false,
         "precalc": {
+            "js_editorSetInitialization": ";\n",
             "customControl": {
                 "js_beforePrepare": "",
                 "js_afterRender": "",
                 "customControl_xbasicFunctions": ""
+            },
+            "jschart": {
+                "js_beforePrepare": "",
+                "js_afterRender": "",
+                "jschart_xbasicFunctions": ""
+            },
+            "rgraph": {
+                "libraries": ""
+            },
+            "getSetFunctions": {
+                "js_beforePrepare": ""
             },
             "injectibleHTML": "",
             "containerWindowHTML": "",
@@ -1995,11 +2076,13 @@
             "controlJavascriptRepeatingSections": "",
             "template_js": "",
             "sessionVarsInShowHideExpns": "",
+            "flagHasShowTimer": false,
             "themeSearchReplaceString": "[theme:listBox.base.className|{dialog.style}List]=*if_error(p.listBox.base.className,\"{dialog.style}List\")\n",
             "flagHasHTML5ImageCapture": false,
             "flagUsesCordova": false,
             "flagUseAmazonS3FileUpload": false,
             "flagUseStripe": false,
+            "usesSystemSVG": false,
             "flagUseAudioPlayer": false,
             "flagUseInk": false,
             "flagUsesAudioLibrary": false,
@@ -2027,24 +2110,17 @@
                 "showSlider": false
             }
         },
-        "flagDropdownCascadingChanged": false,
-        "toolBox_value": "",
-        "addinBuildNumber": "4701",
-        "addinBuildNumberHighestUsed": "4701",
-        "alphaFiveBuildNumber": "12",
-        "builtWithVersionNumer": 1,
-        "securityEnabled": false,
-        "showHideIsUsed": false,
-        "containerSubTypeNew": "",
-        "containerSubTypeOld": "",
-        "informixFix": false,
-        "_flagDoTreeview": true,
+        "A5SaveTimeStamp": "20180120152131520",
         "a_actionJavascript": [
             {
                 "actionGuid": "10da7497-16ad-4dd7-97da-d2b2f26bd67b ",
                 "scriptMetaData": "<a_ajs<[1]<display=\"{I:'$$file.export'}{F=Tahoma,10}{C=Dark Blue,White}{B=Blue White,Dark Blue}Advanced Export to Excel, Word, HTML or Ascii using a Report Definition{T=4}{I:'a5_vertical_line'}Export to Excel\">\n<action=\"Advanced Export to Excel, Word, HTML or Ascii using a Report Definition\">\n<icon=\"$$file.export\">\n<isCommentedOut=.F.>\n<comment=\"Export to Excel\">\n<builder=\"a5ajs_AdvancedExport(v,wf,pv,dlg_mode)\">\n<metaData=<<%str1%\n<flagAdvancedExport=.T.>\n<reportPrintDefinition=<<%str%\n<layoutType=1>\n<layoutName=\"DevConSessionReport@conferenceapp.alb\">\n<dbfFilter=\"\">\n<sqlFilter=\"\">\n<dbfOrder=\"\">\n<sqlOrder=\"sorder\">\n<localArguments=\"\">\n<argumentBindings=\"\">\n<pdfOptions=\"\">\n<localFilter=\"\">\n<localOrder=\"\">\n<isSQL=.F.>\n<SQLReport=.T.>\n<sqladhocarguments=\"\">\n%str%>\n<report<layoutTypeC=\"\">\n<layoutName=\"DevConSessionReport@conferenceapp.alb\">\n<dbfFilter=\"\">\n<dbfOrder=\"\">\n<sqlFilter=\"\">\n<sqlOrder=\"sorder\">\n<localArguments=\"\">\n<argumentBindings=\"\">\n<pdfOptions=\"\">\n<localFilter=\"\">\n<localOrder=\"\">\n<sqlReport=.T.>\n<exportType=\"Excel\">\n<initialView=\"HTML\">\n<workingMessageDiv=\"\">\n<HTMLToolbar<buttons<pdf=.T.>\n<excel=.T.>\n<printHTML=.T.>\n<word=.T.>\n<text=.F.>\n>\n>\n>\n<flagExportMode=.T.>\n<clientSideFilename=\"\">\n<ajaxWindowWorkingMessage=\"Working...\">\n<ajaxWindowWorkingMessageIcon=\"css/A5System/Images/wait.gif\">\n<ajaxFailedMessage=\"\">\n<offlineJavascript=\"\">\n<ajaxcallbacktimeout=\"<Default>\">\n<targetType=\"\">\n%str1%>\n<javascriptAttribute=\"{grid.componentName}_O_5CE5FD9196A34C5BBF2EE1FA917D658A({grid.rownumber},'{grid.rowId}',this);\">\n<Javascriptdeclarations_row=<<%str%\n\n%str%>\n<Javascriptdeclarations_global=<<%str%\nwindow['{grid.componentName}_O_5CE5FD9196A34C5BBF2EE1FA917D658A'] = function(rowNum,rowId,objEle) {\nvar runMethod = 'ajax';\n\nif(runMethod == 'ajax') {\nif(typeof {dialog.object}._onlineStatus != 'undefined') { \n\tif({dialog.object}._onlineStatus == 'offline') { \n\t\t( function() {  }() );\n\t\t{dialog.object}._executeEvent('onAjaxCallbackNotAvailable', {xbasicFunctionName: '', ajaxEvent: 'OpenComponent'})\n\t\treturn false;\n\t}\n}\t\t\n\t\n};\n\nif($('')) {\n\t$('').innerHTML = '<img src=\"css/A5System/Images/wait.gif\"/> Working...'; \n\t$('').style.display = '';\n}\n\tvar ro = new Object();\n\t\nro.ajaxFailedMessage = '';\nro.ajaxCallbackTimeout = {dialog.object}.ajaxCallbackTimeout;\n\t\n\tro.hostComponentType = 'Dialog';\n\tro.reportName = 'DevConSessionReport@conferenceapp.alb';\n\tro.reportNameShort = 'DevConSessionReport';\n\tro.reportType = 'Report';\n\tro.reportIFrame = '';\n\tro.gridId = '{grid.componentName}';\n\tro.download = 'Y';\n\tro.xbasicFunction = '';\n\tro.clientSideFilename = '';\n\tro.reportMessagesDivId = '';\n\tro.filter = '';\n\tro.order = '';\n\tro.sqlFilter = '';\n\tro.sqlOrder = 'sorder';\n\tro.arguments = '';\n\tro.rawArgumentMapping = '';\n\tro.controlReferences = [];\n\tro.arrayControls = {grid.object}._getArrayControls();\n\tro.workingMessage = 'Working...';\n\tro.workingMessageIcon = 'css/A5System/Images/wait.gif'\n\tro.pdfoptions = '';\n\tro.displayMode = '';\n\tro.saveAs = 'excel';\n\tro.pdfOpenParameters = '' ;\n\tro._rowNumber = rowNum;\n\tro.afterExecuteJavascript = '';\n\tif(A5.__dtfmt) ro.__dtfmt = A5.__dtfmt;\n\tro.__flagIIS = false;\n\tif(A5.__flagIIS) ro.__flagIIS = A5.__flagIIS;\n\t\n\t\n\tro.htmlReporting = {initialView: 'HTML'};\n\t\n\t\n\t\n\tif({grid.object}._embeddedMode) {\n\t\tvar callWorkingPreview = true;\n\t\tif( callWorkingPreview ) {\n\t\t\tro.windowType = 'MDI';\n\t\t\treportPreviewFromWorkingPreview(ro);\n\t\t\tif($('')) {\n\t$('').innerHTML = ''; \n\t$('').style.display = 'none';\n}\n\t\t\treturn false;\n\t\t}\n\t\t\n\t}\n\n\n\t\n\t\n\t\n\tA5.component.runReport(ro);\n\n\n}\n\n%str%>\n<xbasicFunctions=\"\">\n>\n>\n<flagRunSynchronously=.F.>\n"
             }
         ],
-        "Livepreview_permissions": ""
+        "Livepreview_permissions": "",
+        "_flagDoTreeview": true,
+        "minimumBuildNumber": "",
+        "informixFix": false,
+        "livePreview_permissions_friendly": ""
     }
 }
